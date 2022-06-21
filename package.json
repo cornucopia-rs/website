@@ -16,8 +16,8 @@
 		"@sveltejs/adapter-auto": "next",
 		"@sveltejs/adapter-netlify": "^1.0.0-next.62",
 		"@sveltejs/kit": "next",
-		"@tailwindcss/typography": "^0.5.2",
 		"@tsconfig/svelte": "^3.0.0",
+		"@types/prismjs": "^1.26.0",
 		"@typescript-eslint/eslint-plugin": "^5.10.1",
 		"@typescript-eslint/parser": "^5.10.1",
 		"autoprefixer": "^10.4.4",
@@ -37,6 +37,6 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"daisyui": "^2.15.0"
+		"prismjs": "^1.28.0"
 	}
 }
