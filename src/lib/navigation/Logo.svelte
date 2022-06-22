@@ -14,6 +14,6 @@
 			src="/LogoCornucopia.svg"
 		/>
 
-		<div class=" text-4xl font-light sm:hidden lg:block">cornucopia</div>
+		<div class=" text-4xl font-light sm:hidden lg:block">Cornucopia</div>
 	</LinkButton>
 </div>
