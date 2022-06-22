@@ -5,14 +5,12 @@ const config = {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 
 	theme: {
-
 		extend: {
+
 			fontFamily: {
 				sans: ['Lexend', ...defaultTheme.fontFamily.sans]
 
 			},
-
-
 
 			colors: {
 				primary: '#BA76F9ff' /* primary color */,
