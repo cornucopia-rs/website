@@ -1,0 +1,37 @@
+button {
+    @apply font-semibold no-underline;
+    animation: button-pop 0.25s ease-out;
+}
+
+button:active:focus {
+    animation: none;
+    transform: scale(0.95);
+}
+
+button:hover:active {
+    animation: none;
+    transform: scale(0.95);
+}
+
+button:hover {
+    transform: none;
+}
+
+button:focus-visible {
+    outline: 2px solid hsl(var(--nf));
+    outline-offset: 2px;
+}
+
+@keyframes button-pop {
+    0% {
+        transform: scale(0.95);
+    }
+
+    40% {
+        transform: scale(1.02);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
