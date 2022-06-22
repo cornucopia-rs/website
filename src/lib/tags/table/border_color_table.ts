@@ -1,0 +1,1 @@
+export const border_color = 'border-zinc-700';
