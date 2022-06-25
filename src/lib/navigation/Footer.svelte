@@ -1,27 +1,38 @@
 <script>
-	import DiscordLink from './navBar/DiscordLink.svelte';
-	import GithubLink from './navBar/GithubLink.svelte';
+	import DiscordLink from '../actions/DiscordLink.svelte';
+	import GithubLink from '$lib/actions/GithubLink.svelte';
 </script>
 
-<footer class="pb-6 sm:pb-0 body-font mt-20 border-t border-zinc-600">
-	<div class="container sm:py-6 mx-auto flex items-center sm:flex-row flex-col">
-		<p class="text-sm py-2 text-zinc-400">
-			© 2022 — Cornucopia-rs contributor
+<footer class="bg-base-100 text-base-content body-font">
+	<div class="container flex flex-col items-center px-5 py-8 mx-auto mt-20 sm:flex-row">
+		<a
+			href="/"
+			class="flex items-center justify-center font-medium text-white title-font md:justify-start"
+		>
+			<img
+				alt="Logo Cornucopia"
+				aria-hidden="true"
+				class=" w-10 h-10 hover:animate-[spin_0.5s_ease_1] "
+				src="/LogoCornucopia.svg"
+			/>
+			<span class="px-4 text-xl font-light">Cornucopia</span>
+		</a>
+		<p
+			class="tracking-tighter sm:tracking-normal mt-4 text-sm text-gray-400 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-zinc-700 sm:py-2 sm:mt-0"
+		>
+			© 2022 Cornucopia-rs contributor —
 			<a
 				href="https://github.com/cornucopia-rs/cornucopia"
-				class="text-zinc-500 whitespace-nowrap sm:ml-1"
+				class="ml-1 text-gray-500"
 				target="_blank"
-				rel="noopener noreferrer">@Cornucopia-rs</a
+				rel="noopener noreferrer">@cornucopia</a
 			>
 		</p>
-		<div
-			class="space-x-6 md:space-x-0 inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start"
+		<span
+			class="inline-flex justify-center mt-4 space-x-8 md:space-x-0  opacity-50 sm:ml-auto sm:mt-0 sm:justify-start"
 		>
-			<DiscordLink
-				iconSize="h-8 w-8 text-zinc-400 hover:text-neutral-focus sm:hover:text-base-100 sm:bg-zinc-400"
-				textClass="hidden"
-			/>
-			<GithubLink iconSize="h-8 w-8 text-zinc-400 hover:text-neutral" textClass="hidden" />
-		</div>
+			<GithubLink iconSize="h-8 w-8" textClass="hidden" />
+			<DiscordLink iconSize="h-8 w-8" textClass="hidden" />
+		</span>
 	</div>
 </footer>
