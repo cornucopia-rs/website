@@ -6,11 +6,16 @@ language = "en"
 multilingual = false
 src = "src"
 
+[rust]
+edition = "2021"
+
 [output.html]
 mathjax-support = false
 default-theme = "ayu"
 git-repository-url = "https://github.com/cornucopia-rs/cornucopia"
 additional-css = ["././mdbook-admonish.css"]
+site-url = "/book/"
+cname = "cornucopia-rs.netlify.app/"
 
 [output.html.playground]
 runnable = false
