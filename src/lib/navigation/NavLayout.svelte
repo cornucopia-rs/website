@@ -7,10 +7,6 @@
 	onMount(() => {
 		appState.updateScreenSize();
 	});
-
-	function sidebarState() {
-		$appState.sidebarOpen = !$appState.sidebarOpen;
-	}
 </script>
 
 <svelte:window on:resize={appState.updateScreenSize} />
@@ -18,9 +14,8 @@
 <div
 	class="antialiased text-base-content w-full mx-auto px-4 lg:px-12 xl:px-24 sm:max-w-xl md:max-w-2xl lg:max-w-5xl xl:max-w-[100rem]"
 >
-	{#if $appState.sidebarOpen === false}
-		<div class="w-full h-5" />
-	{/if}
+	<div class="w-full h-5" />
+
 	<div
 		class="fixed w-full z-40 left-0 top-0 h-[5.25rem] md:h-[7.5rem] bg-base-100 shadow-md shadow-base-100 opacity-90"
 	/>
