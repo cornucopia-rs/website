@@ -2,7 +2,7 @@ import { writable } from 'svelte/store';
 
 export type AppState = {
 	sidebarOpen: boolean;
-	screenSize: ScreenSize
+	screenSize: ScreenSize | null;
 };
 
 // Manage the screen size
@@ -26,7 +26,7 @@ function createAppState() {
 
 	const state: AppState = {
 		sidebarOpen: false,
-		screenSize: "Small"
+		screenSize: null,
 	};
 
 	const { subscribe, set, update } = writable(state);
@@ -36,9 +36,18 @@ function createAppState() {
 		set,
 		update,
 		updateScreenSize: () => {
-			update((state) => { return { sidebarOpen: state.sidebarOpen, screenSize: computeScreenSize() } });
+			update((state) => {
+				return {
+					sidebarOpen: state.sidebarOpen,
+					screenSize: computeScreenSize()
+				}
+			});
 		}
 	};
 }
+
+
+
+
 
 export const appState = createAppState();
