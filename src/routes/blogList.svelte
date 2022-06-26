@@ -1,3 +1,4 @@
+<!-- Page created for an example of the blog -->
 <script>
 	import BlogListLayout from '$lib/blog/BlogListLayout.svelte';
 	import Card from '$lib/blog/Card.svelte';

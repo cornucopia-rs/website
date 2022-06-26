@@ -1,5 +1,7 @@
+<!-- Page created for an example of the blog -->
 <script>
 	import BlogLayout from '$lib/blog/BlogLayout.svelte';
+	import H2 from '$lib/tags/H2.svelte';
 </script>
 
 <svelte:head>
@@ -7,24 +9,13 @@
 </svelte:head>
 
 <BlogLayout title="New features on the way!" date_author="May 14, 2022 by Louis Gariepy">
-	<h2 class="font-normal pt-6 text-zinc-300">
-		Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam explicabo asperiores placeat
-		numquam? Architecto placeat delectus fuga optio doloremque alias?
-	</h2>
+	<H2>Lorem ipsum dolor sit amet consectetur adipisicing elit</H2>
 
 	<p>
 		Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non voluptates sapiente pariatur. Est
 		excepturi rem dolorem, veritatis officiis cumque voluptatibus odit iusto accusantium velit et
 		expedita perferendis accusamus corrupti!
 	</p>
-	<div class="my-12">
-		<img
-			alt="Diagram of a use case of cornucopia"
-			aria-hidden="true"
-			class="w-full h-full"
-			src="/CornucopiaDiagram.svg"
-		/>
-	</div>
 
 	<p>
 		Nemo deleniti enim error tempore voluptatum! Quas, labore officia beatae reprehenderit a tempora
