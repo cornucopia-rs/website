@@ -1,0 +1,1 @@
+export const discordServer = 'https://discord.gg/nYwUmQDHBZ'

@@ -13,6 +13,7 @@
 	import Ul from '$lib/tags/Ul.svelte';
 	import Li from '$lib/tags/Li.svelte';
 	import Sidebar from '$lib/navigation/Sidebar.svelte';
+	import { discordServer } from '$lib/utils/externalLinks';
 
 	let classButton = 'py-4 w-full rounded-full flex-1 ';
 </script>
@@ -123,9 +124,8 @@
 				</div>
 
 				<div class="flex flex-col justify-center py-8 space-y-6 xl:py-4">
-					<!-- TODO change href -->
 					<LinkButton
-						href="https://rust-lang.github.io/mdBook/"
+						href="/book/index.html"
 						componentClass=" border border-zinc-300 text-zinc-300 hover:bg-zinc-300 hover:text-base-100  mx-auto py-3 w-full max-w-sm rounded-full"
 						>See the book</LinkButton
 					>
@@ -215,32 +215,26 @@
 				class="flex-col self-center w-full max-w-sm space-y-10 sm:ml-1 md:self-start sm:max-w-md"
 			>
 				<!-- contributing section-->
-
-				<!-- TODO change href-->
 				<LinkButton
-					href="https://rust-lang.github.io/mdBook/"
+					href="/book/contributing.html"
 					componentClass="{classButton} flex-1 rounded-full bg-secondary text-secondary-content hover:bg-secondary-focus normal-case text-xl"
 				>
 					How to contribute
 				</LinkButton>
 
-				<!-- discord link-->
+				<!-- Discord link-->
 				<LinkButton
-					href="https://github.com/cornucopia-rss/cornucopia"
+					href={discordServer}
 					componentClass="{classButton} border border-secondary text-secondary hover:bg-secondary-focus hover:border-secondary-focus hover:text-secondary-content normal-case text-xl"
 				>
-					Take a look at the github
+					Join us on Discord!
 				</LinkButton>
 			</div>
 
 			<div
 				class="absolute sm:bottom-36 lg:bottom-52 sm:pt-32 -z-50 right-0 h-[34rem]  sm:h-[58rem] opacity-5"
 			>
-				<img
-					class="w-full h-full"
-					alt="Minimalist version of the logo"
-					src="/InvertedBgWhiteIcon44x44.svg"
-				/>
+				<img class="w-full h-full" alt="Minimalist version of the logo" src="white_logo.svg" />
 			</div>
 		</section>
 	</div>

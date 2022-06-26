@@ -12,8 +12,8 @@
 			<img
 				alt="Logo Cornucopia"
 				aria-hidden="true"
-				class=" w-10 h-10 hover:animate-[spin_0.5s_ease_1] "
-				src="/LogoCornucopia.svg"
+				class=" w-10 h-10 opacity-60 hover:animate-[spin_0.5s_ease_1] "
+				src="white_logo.svg"
 			/>
 			<span class="px-4 text-xl font-light">Cornucopia</span>
 		</a>

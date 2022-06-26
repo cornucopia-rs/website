@@ -5,7 +5,7 @@
 </script>
 
 <LinkButton
-	componentClass=" tracking-wider space-x-4 text-zinc-100 hover:text-neutral md:px-4 text-xl md:text-2xl font-normal normal-case "
+	componentClass="tracking-wider space-x-4 text-zinc-100 hover:text-neutral lg:px-4 text-xl lg:text-2xl font-normal normal-case "
 	{href}
 	><slot />
 </LinkButton>
