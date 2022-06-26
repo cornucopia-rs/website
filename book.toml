@@ -4,7 +4,11 @@ authors = ["louisgariepy"]
 description = "The Cornucopia book.."
 language = "en"
 multilingual = false
-src = "src"
+src = "book"
+
+[build]
+build-dir = "static/book"
+
 
 [rust]
 edition = "2021"
@@ -12,6 +16,8 @@ edition = "2021"
 [output.html]
 mathjax-support = false
 default-theme = "ayu"
+preferred-dark-theme = "ayu"
+
 git-repository-url = "https://github.com/cornucopia-rs/cornucopia"
 additional-css = ["././mdbook-admonish.css"]
 site-url = "/book/"
