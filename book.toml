@@ -15,6 +15,7 @@ edition = "2021"
 [output.html]
 mathjax-support = false
 default-theme = "ayu"
+preferred-dark-theme = "ayu"
 git-repository-url = "https://github.com/cornucopia-rs/cornucopia"
 additional-css = ["././mdbook-admonish.css"]
 site-url = "/book/"
