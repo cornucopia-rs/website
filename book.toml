@@ -1,7 +1,7 @@
 [book]
 title = "Cornucopia"
 authors = ["louisgariepy"]
-description = "The Cornucopia book.."
+description = "The Cornucopia book."
 language = "en"
 multilingual = false
 src = "book"
