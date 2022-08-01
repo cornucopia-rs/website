@@ -1,7 +1,7 @@
 # Introduction
 
-Cornucopia is a tool designed to generate type-checked Rust interfaces from your PostgreSQL queries. It works by preparing your queries against an actual database and then running an extensive validation suite. Once the queries are prepared and validated, the Rust code is generated into a module, which can be imported and used in your project. The basic premise is thus to:
-1. Write your SQL queries.
+Cornucopia is a tool powered by [`rust-postgres`](https://github.com/sfackler/rust-postgres) designed to generate type-checked Rust interfaces from your PostgreSQL queries. It works by preparing your queries against an actual database and then running an extensive validation suite on them. Once the queries are prepared and validated, Rust code is generated into a module, which can be imported and used in your project. The basic premise is thus to:
+1. Write your PostgreSQL queries.
 2. Use Cornucopia to generate Rust code.
 3. Use the generated code in your project.
 
