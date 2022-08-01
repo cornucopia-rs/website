@@ -19,7 +19,7 @@
 </script>
 
 <svelte:head>
-	<title>About Cornucopia</title>
+	<title>Cornucopia</title>
 </svelte:head>
 
 <!-- 2 strips in the bg -->
@@ -48,15 +48,15 @@
 				<h1 class="font-semibold ">
 					Generate <b
 						class="font-semibold underline underline-offset-2 lg:underline-offset-4 text-accent"
-						>type checked</b
+						>type-checked</b
 					> Rust
 				</h1>
 				<h2 class="font-light tracking-tight md:tracking-wide">from your PostgreSQL</h2>
 			</div>
 			<div class="w-full max-w-xs sm:max-w-xl xl:max-w-2xl ">
 				<h3 class="w-full py-4 md:py-8 tracking-wide md:text-xl ">
-					Cornucopia is a pure Rust CLI utility resting on postgres designed to facilitate
-					PostgreSQL workflows in Rust.
+					Cornucopia is a tool powered by rust-postgres designed to generate type-checked Rust
+					interfaces from your PostgreSQL queries.
 				</h3>
 			</div>
 		</section>
@@ -77,48 +77,51 @@
 				<div class="flex flex-wrap ">
 					<Feature
 						title="SQL-first"
-						content=" Your database schema is the source of truth. No ORM."
+						content="Your SQL is the only source of truth. No intricate ORM."
 					>
 						<Storage />
 					</Feature>
 					<Feature
 						title="Custom user types"
-						content="Support custom user types like composites, enums, domains and one-dimensional array"
+						content="Cornucopia supports composites, enums, domains and one-dimensional arrays out of the box."
 					>
 						<Person />
 					</Feature>
 
 					<Feature
-						title="Asynchronous streams"
-						content="Strongly-typed async row streams suitable for web servers."
+						title="Powerful query validation"
+						content="Catch errors before runtime, with powerful (and pretty) diagnostics."
 					>
 						<ElectricBolt />
 					</Feature>
 					<Feature
-						title="Nullable return columns"
-						content=" Allow the user to have nullable return colums."
+						title="Granular type nullity control"
+						content="Easily customize what columns should be nullable."
 					>
 						<DataArray />
 					</Feature>
 					<Feature
-						title="Self managed"
-						content="Build your queries against your own live database, or let Cornucopia manage that for you."
+						title="Row mapping"
+						content="Map your query rows using our ergonomic non-allocating API."
 					>
 						<PrecisionManifacturing />
 					</Feature>
 					<Feature
-						title="Flexible connexion types"
-						content="Use, mix and match the connection types that you want: pooled or not, transaction or not."
+						title="Sync and async"
+						content="Cornucopia can generate both sync and async Rust."
 					>
 						<Tune />
 					</Feature>
 					<Feature
-						title="Compatible with build.rs"
-						content="Rebuild Rust queries whenever SQL files change."
+						title="Available as a library and a CLI"
+						content="Cornucopia is flexible and tries to accomodate all your workflows seemlessly."
 					>
 						<Autorenew />
 					</Feature>
-					<Feature title="No macros" content=" No macros, respects your compile times.">
+					<Feature
+						title="Competitive performance"
+						content="Cornucopia generates your code quickly, and the generated code's performance is as close to native `rust-postgres` as we can make it."
+					>
 						<Timer />
 					</Feature>
 				</div>
@@ -127,7 +130,7 @@
 					<LinkButton
 						href="/book/index.html"
 						componentClass=" border border-zinc-300 text-zinc-300 hover:bg-zinc-300 hover:text-base-100  mx-auto py-3 w-full max-w-sm rounded-full"
-						>See the book</LinkButton
+						>Learn more</LinkButton
 					>
 				</div>
 			</div>
@@ -141,23 +144,19 @@
 						class="mb-4 text-3xl font-medium text-center title-font sm:text-left sm:text-4xl text-zinc-200"
 					>
 						Designed to facilitate PostgreSQL
-						<br class="hidden lg:inline-block " />for your project in Rust
+						<br class="hidden lg:inline-block " />for your Rust projects.
 					</h1>
 					<div class="pb-16">
 						<Ul>
 							<Li
-								>Cornucopia aims to get out of your way, <b
-									>transpiling your PostgreSQL queries to Rust on demand.</b
-								></Li
-							>
+								>Cornucopia aims to get out of your way, transpiling your PostgreSQL queries to Rust
+								on demand.
+							</Li>
 							<Li
 								>Each query is prepared against your schema, ensuring that the query statements are
-								valid SQL.</Li
+								valid and type-checked.</Li
 							>
-							<Li
-								>These prepared statements are then be used to generate properly type-checked Rust
-								code for this query.</Li
-							>
+							<Li>Ergonomic while being free of heavy macros or complex generics.</Li>
 						</Ul>
 					</div>
 					<div class="grid grid-cols-2 gap-4 sm:w-full sm:flex sm:flex-row sm:items-center">

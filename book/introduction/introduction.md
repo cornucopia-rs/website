@@ -15,6 +15,7 @@ Here are some defining features:
 * Ergonomic non-allocating row mapping.
 * Granular type nullity control.
 * Available as a library and a CLI.
+* As close to native `rust-postgres` performance as we can make it.
 
 ```admonish info
 If you just want to get started without having to read all of this, you can take a look at our [examples](/examples/examples.html). 
