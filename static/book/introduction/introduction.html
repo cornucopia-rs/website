@@ -147,7 +147,7 @@
                     <a href="https://github.com/cornucopia-rs/cornucopia" title="Git repository" aria-label="Git repository">
                         <i id="git-repository-button" class="fa fa-github"></i>
                     </a>
-                    <a class="discord" href="https://discord.gg/vPkgqJdC" title="Discord link"
+                    <a class="discord" href="https://discord.gg/nYwUmQDHBZ" title="Discord link"
                         aria-label="Discord link">
                         <svg id="discord-button" width="16" height="16" role="img" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
@@ -185,9 +185,9 @@
             <div id="content" class="content">
                 <main>
                     <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
-<p>Cornucopia is a tool designed to generate type-checked Rust interfaces from your PostgreSQL queries. It works by preparing your queries against an actual database and then running an extensive validation suite. Once the queries are prepared and validated, the Rust code is generated into a module, which can be imported and used in your project. The basic premise is thus to:</p>
+<p>Cornucopia is a tool powered by <a href="https://github.com/sfackler/rust-postgres"><code>rust-postgres</code></a> designed to generate type-checked Rust interfaces from your PostgreSQL queries. It works by preparing your queries against an actual database and then running an extensive validation suite on them. Once the queries are prepared and validated, Rust code is generated into a module, which can be imported and used in your project. The basic premise is thus to:</p>
 <ol>
-<li>Write your SQL queries.</li>
+<li>Write your PostgreSQL queries.</li>
 <li>Use Cornucopia to generate Rust code.</li>
 <li>Use the generated code in your project.</li>
 </ol>
