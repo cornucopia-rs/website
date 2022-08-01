@@ -5,7 +5,6 @@
 	import Button from '$lib/actions/Button.svelte';
 	import CloseIcon from '$lib/icons/actions/CloseIcon.svelte';
 	import Book from './Book.svelte';
-	import About from './About.svelte';
 
 	import DiscordLink from '../../actions/DiscordLink.svelte';
 	import GithubLink from '$lib/actions/GithubLink.svelte';
@@ -42,7 +41,6 @@
 				</div>
 				<div class="flex ml-auto items-center space-x-4">
 					<Book />
-					<About />
 
 					<GithubLink />
 					<DiscordLink />

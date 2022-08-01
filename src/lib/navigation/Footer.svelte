@@ -20,12 +20,12 @@
 		<p
 			class="tracking-tighter sm:tracking-normal mt-4 text-sm text-gray-400 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-zinc-700 sm:py-2 sm:mt-0"
 		>
-			© 2022 Cornucopia-rs contributor —
+			© 2022 cornucopia-rs contributors —
 			<a
 				href="https://github.com/cornucopia-rs/cornucopia"
 				class="ml-1 text-gray-500"
 				target="_blank"
-				rel="noopener noreferrer">@cornucopia</a
+				rel="noopener noreferrer">@cornucopia-rs</a
 			>
 		</p>
 		<span
