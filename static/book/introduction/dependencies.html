@@ -12,7 +12,7 @@
     <!-- Custom HTML head -->
     
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-    <meta name="description" content="The Cornucopia book..">
+    <meta name="description" content="The Cornucopia book.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#ffffff" />
 
@@ -101,7 +101,7 @@
 
     <nav id="sidebar" class="sidebar" aria-label="Table of contents">
         <div class="sidebar-scrollbox">
-            <ol class="chapter"><li class="chapter-item expanded "><a href="../introduction/introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../introduction/installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="../introduction/dependencies.html" class="active"><strong aria-hidden="true">1.2.</strong> Dependencies</a></li><li class="chapter-item expanded "><a href="../introduction/types.html"><strong aria-hidden="true">1.3.</strong> Supported types</a></li></ol></li><li class="chapter-item expanded "><a href="../using_cornnucopia/using_cornnucopia.html"><strong aria-hidden="true">2.</strong> Using Cornucopia</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../using_cornnucopia/cli.html"><strong aria-hidden="true">2.1.</strong> CLI</a></li><li class="chapter-item expanded "><a href="../using_cornnucopia/api.html"><strong aria-hidden="true">2.2.</strong> API</a></li></ol></li><li class="chapter-item expanded "><a href="../writing_queries/writing_queries.html"><strong aria-hidden="true">3.</strong> Writing queries</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../writing_queries/query_annotations.html"><strong aria-hidden="true">3.1.</strong> Query annotations</a></li><li class="chapter-item expanded "><a href="../writing_queries/type_annotations.html"><strong aria-hidden="true">3.2.</strong> Type annotations</a></li></ol></li><li class="chapter-item expanded "><a href="../using_queries/using_queries.html"><strong aria-hidden="true">4.</strong> Using your generated queries</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../using_queries/db_connections.html"><strong aria-hidden="true">4.1.</strong> Database connections</a></li></ol></li><li class="chapter-item expanded "><a href="../examples.html"><strong aria-hidden="true">5.</strong> Examples</a></li><li class="chapter-item expanded "><a href="../contributing.html"><strong aria-hidden="true">6.</strong> Contributing</a></li></ol>
+            <ol class="chapter"><li class="chapter-item expanded "><a href="../introduction/introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../introduction/installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="../introduction/dependencies.html" class="active"><strong aria-hidden="true">1.2.</strong> Dependencies</a></li><li class="chapter-item expanded "><a href="../introduction/types.html"><strong aria-hidden="true">1.3.</strong> Supported types</a></li></ol></li><li class="chapter-item expanded "><a href="../using_cornucopia/using_cornucopia.html"><strong aria-hidden="true">2.</strong> Using Cornucopia</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../using_cornucopia/cli.html"><strong aria-hidden="true">2.1.</strong> CLI</a></li><li class="chapter-item expanded "><a href="../using_cornucopia/api.html"><strong aria-hidden="true">2.2.</strong> API</a></li></ol></li><li class="chapter-item expanded "><a href="../writing_queries/writing_queries.html"><strong aria-hidden="true">3.</strong> Writing queries</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../writing_queries/query_annotations.html"><strong aria-hidden="true">3.1.</strong> Query annotations</a></li><li class="chapter-item expanded "><a href="../writing_queries/type_annotations.html"><strong aria-hidden="true">3.2.</strong> Type annotations</a></li></ol></li><li class="chapter-item expanded "><a href="../using_queries/using_queries.html"><strong aria-hidden="true">4.</strong> Using your generated queries</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../using_queries/db_connections.html"><strong aria-hidden="true">4.1.</strong> Database connections</a></li></ol></li><li class="chapter-item expanded "><a href="../examples.html"><strong aria-hidden="true">5.</strong> Examples</a></li><li class="chapter-item expanded "><a href="../contributing.html"><strong aria-hidden="true">6.</strong> Contributing</a></li></ol>
         </div>
         <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
     </nav>
@@ -136,7 +136,7 @@
                 </div>
 
                 <a style="color:lightgray;  text-decoration: none;" href="/" class="menu-title">
-                    <img style="vertical-align:middle" src="/logo.png" height="32" width="32"
+                    <img style="vertical-align:middle" src="../logo.png" height="32" width="32"
                         alt="Website main page link." />
                     Cornucopia
                 </a>
@@ -186,23 +186,21 @@
                 <main>
                     <h1 id="dependencies"><a class="header" href="#dependencies">Dependencies</a></h1>
 <p>The code generated by Cornucopia has a few dependencies that you need to import into your project's <code>Cargo.toml</code>.</p>
+<p>This section describes the role of each dependency. Dependencies come in three broad categories:</p>
+<ul>
+<li>Common required ones.</li>
+<li>Choosing between sync and async.</li>
+<li>Optional dependencies that extend Cornucopia's capabilities.</li>
+</ul>
 <h2 id="required"><a class="header" href="#required">Required</a></h2>
 <ul>
-<li>Client code: <code>cornucopia_client</code>.</li>
-<li>Postgres type utils: <code>postgres_types</code>.</li>
+<li>Postgres type utils: <code>postgres_types</code> <strong>with the <code>derive</code> feature enabled</strong>.</li>
 </ul>
-<div id="admonition-note" class="admonition note">
-<div class="admonition-title">
-<p>Note</p>
-<p><a class="admonition-anchor-link" href="#admonition-note"></a></p>
-</div>
-<div>
-<p>By default, <code>cornucopia_client</code> has the <code>async</code> and <code>deadpool</code> features enabled. If you want to generate sync instead code, you should declare it using <code>default-features = false</code>.</p>
-</div>
-</div>
-<h2 id="optional-sync"><a class="header" href="#optional-sync">(Optional) Sync</a></h2>
+<h2 id="choose-one-sync-or-async"><a class="header" href="#choose-one-sync-or-async">Choose one (sync or async)</a></h2>
+<h3 id="sync"><a class="header" href="#sync">Sync</a></h3>
 <ul>
-<li>Driver: <code>postgres</code></li>
+<li>Client: <code>cornucopia_sync</code>.</li>
+<li>Driver: <code>postgres</code>.</li>
 </ul>
 <div id="admonition-info" class="admonition info">
 <div class="admonition-title">
@@ -210,59 +208,68 @@
 <p><a class="admonition-anchor-link" href="#admonition-info"></a></p>
 </div>
 <div>
-<p>Sync connection pooling with <code>r2d2-postgres</code> works without requiring any special integration.</p>
+<p>You can achieve synchronous connection pooling with <code>r2d2-postgres</code> without any special integration.</p>
 </div>
 </div>
-<h2 id="optional-async"><a class="header" href="#optional-async">(Optional) Async</a></h2>
-<p><em>Requires <code>cornucopia_client</code>'s <code>async</code> feature (enabled by default)</em></p>
+<h3 id="async"><a class="header" href="#async">Async</a></h3>
 <ul>
+<li>Client: <code>cornucopia_async</code>.</li>
 <li>Runtime: <code>tokio</code>.</li>
 <li>Driver: <code>tokio_postgres</code>.</li>
 <li>Async tools: <code>futures</code>.</li>
 </ul>
-<h2 id="optional-connection-pooling"><a class="header" href="#optional-connection-pooling">(Optional) Connection pooling</a></h2>
-<p><em>Requires <code>cornucopia_client</code>'s <code>deadpool</code> feature (enabled by default)</em></p>
+<h4 id="optional-async-connection-pooling"><a class="header" href="#optional-async-connection-pooling">(Optional) Async connection pooling</a></h4>
+<p><em>Requires <code>cornucopia_async</code>'s <code>deadpool</code> feature (enabled by default)</em></p>
 <ul>
-<li>Pooled connections: <code>deadpool-postgres</code>. </li>
+<li>Connection pool <code>deadpool-postgres</code>. </li>
 </ul>
 <h2 id="optional-extra-types"><a class="header" href="#optional-extra-types">(Optional) Extra types</a></h2>
 <p>You can enable additional support for additional PostgreSQL types by adding the corresponding crates and driver features. </p>
-<table><thead><tr><th>Crate</th><th>PostgreSQL</th><th>Rust</th><th>driver feature</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Crate</th><th>PostgreSQL</th><th>Rust</th><th>driver feature</th></tr></thead><tbody>
 <tr><td><code>serde_json</code></td><td><code>Json</code> <code>JsonB</code></td><td><code>Value</code></td><td><code>with-serde_json-1</code></td></tr>
 <tr><td><code>time</code></td><td><code>Time</code> <code>Date</code> <code>Timestamp</code> <code>TimestampTZ</code></td><td><code>Date</code> <code>Time</code> <code>PrimitiveDateTime</code> <code>OffsetDateTime</code></td><td><code>with-time-0_3</code></td></tr>
 <tr><td><code>uuid</code></td><td><code>Uuid</code></td><td><code>Uuid</code></td><td><code>with-uuid-1</code></td></tr>
 <tr><td><code>eui48</code></td><td><code>MacAddr</code></td><td><code>MacAddress</code></td><td><code>with-eui48-1</code></td></tr>
 </tbody></table>
+</div>
 <h2 id="optional-row-serialization"><a class="header" href="#optional-row-serialization">(Optional) Row serialization</a></h2>
-<p><em>Requires the extra types from <code>serde_json</code></em></p>
 <ul>
-<li><code>serde</code> with the <code>derive</code> feature.</li>
+<li><code>serde</code> <strong>with the <code>derive</code> feature enabled</strong>.</li>
 </ul>
 <h2 id="full-dependencies"><a class="header" href="#full-dependencies">Full dependencies</a></h2>
 <p>The code block below shows what your dependencies might look like with every feature that async <code>cornucopia</code> supports enabled:</p>
 <pre><code class="language-toml"># Cargo.toml
 [dependencies]
+# Required
+postgres_types = { version = &quot;*&quot;, features = [&quot;derive&quot;] }
+
+# Async
+cornucopia_async = &quot;*&quot;
 tokio = { version = &quot;*&quot;, features = [&quot;full&quot;] }
-deadpool-postgres = { version = &quot;*&quot; }
-cornucopia_client = &quot;*&quot;
-futures = &quot;*&quot;
 tokio-postgres = { version = &quot;*&quot;, features = [
     &quot;with-serde_json-1&quot;,
     &quot;with-time-0_3&quot;,
     &quot;with-uuid-1&quot;,
     &quot;with-eui48-1&quot;,
 ] }
+futures = &quot;*&quot;
+# Async connection pooling
+deadpool-postgres = { version = &quot;*&quot; }
+
+# Row serialization
 serde = { version = &quot;*&quot;, features = [&quot;derive&quot;] }
+
+# Extra types
 serde_json = &quot;*&quot;
 time = &quot;*&quot;
 uuid = &quot;*&quot;
 eui48 = &quot;*&quot;
 </code></pre>
 <p>If you're generating sync code, your dependencies will look a bit different but this should give you a rough idea.</p>
-<div id="admonition-note-1" class="admonition note">
+<div id="admonition-note" class="admonition note">
 <div class="admonition-title">
 <p>Note</p>
-<p><a class="admonition-anchor-link" href="#admonition-note-1"></a></p>
+<p><a class="admonition-anchor-link" href="#admonition-note"></a></p>
 </div>
 <div>
 <p>You should use numbered instead of wildcard <code>*</code> dependency versions, this is only for demonstration purposes. You can refer to the crate's <a href="/introduction/examples">examples</a> if you're not sure which versions to use.</p>
@@ -301,6 +308,22 @@ eui48 = &quot;*&quot;
 
     </div>
 
+    <!-- Livereload script (if served using the cli tool) -->
+    <script type="text/javascript">
+        const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+        const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+        const socket = new WebSocket(wsAddress);
+        socket.onmessage = function (event) {
+            if (event.data === "reload") {
+                socket.close();
+                location.reload();
+            }
+        };
+
+        window.onbeforeunload = function () {
+            socket.close();
+        }
+    </script>
 
 
 

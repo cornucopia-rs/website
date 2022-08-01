@@ -12,7 +12,7 @@
     <!-- Custom HTML head -->
     
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-    <meta name="description" content="The Cornucopia book..">
+    <meta name="description" content="The Cornucopia book.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#ffffff" />
 
@@ -101,7 +101,7 @@
 
     <nav id="sidebar" class="sidebar" aria-label="Table of contents">
         <div class="sidebar-scrollbox">
-            <ol class="chapter"><li class="chapter-item expanded "><a href="../introduction/introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../introduction/installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="../introduction/dependencies.html"><strong aria-hidden="true">1.2.</strong> Dependencies</a></li><li class="chapter-item expanded "><a href="../introduction/types.html"><strong aria-hidden="true">1.3.</strong> Supported types</a></li></ol></li><li class="chapter-item expanded "><a href="../using_cornnucopia/using_cornnucopia.html"><strong aria-hidden="true">2.</strong> Using Cornucopia</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../using_cornnucopia/cli.html"><strong aria-hidden="true">2.1.</strong> CLI</a></li><li class="chapter-item expanded "><a href="../using_cornnucopia/api.html"><strong aria-hidden="true">2.2.</strong> API</a></li></ol></li><li class="chapter-item expanded "><a href="../writing_queries/writing_queries.html" class="active"><strong aria-hidden="true">3.</strong> Writing queries</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../writing_queries/query_annotations.html"><strong aria-hidden="true">3.1.</strong> Query annotations</a></li><li class="chapter-item expanded "><a href="../writing_queries/type_annotations.html"><strong aria-hidden="true">3.2.</strong> Type annotations</a></li></ol></li><li class="chapter-item expanded "><a href="../using_queries/using_queries.html"><strong aria-hidden="true">4.</strong> Using your generated queries</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../using_queries/db_connections.html"><strong aria-hidden="true">4.1.</strong> Database connections</a></li></ol></li><li class="chapter-item expanded "><a href="../examples.html"><strong aria-hidden="true">5.</strong> Examples</a></li><li class="chapter-item expanded "><a href="../contributing.html"><strong aria-hidden="true">6.</strong> Contributing</a></li></ol>
+            <ol class="chapter"><li class="chapter-item expanded "><a href="../introduction/introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../introduction/installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="../introduction/dependencies.html"><strong aria-hidden="true">1.2.</strong> Dependencies</a></li><li class="chapter-item expanded "><a href="../introduction/types.html"><strong aria-hidden="true">1.3.</strong> Supported types</a></li></ol></li><li class="chapter-item expanded "><a href="../using_cornucopia/using_cornucopia.html"><strong aria-hidden="true">2.</strong> Using Cornucopia</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../using_cornucopia/cli.html"><strong aria-hidden="true">2.1.</strong> CLI</a></li><li class="chapter-item expanded "><a href="../using_cornucopia/api.html"><strong aria-hidden="true">2.2.</strong> API</a></li></ol></li><li class="chapter-item expanded "><a href="../writing_queries/writing_queries.html" class="active"><strong aria-hidden="true">3.</strong> Writing queries</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../writing_queries/query_annotations.html"><strong aria-hidden="true">3.1.</strong> Query annotations</a></li><li class="chapter-item expanded "><a href="../writing_queries/type_annotations.html"><strong aria-hidden="true">3.2.</strong> Type annotations</a></li></ol></li><li class="chapter-item expanded "><a href="../using_queries/using_queries.html"><strong aria-hidden="true">4.</strong> Using your generated queries</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../using_queries/db_connections.html"><strong aria-hidden="true">4.1.</strong> Database connections</a></li></ol></li><li class="chapter-item expanded "><a href="../examples.html"><strong aria-hidden="true">5.</strong> Examples</a></li><li class="chapter-item expanded "><a href="../contributing.html"><strong aria-hidden="true">6.</strong> Contributing</a></li></ol>
         </div>
         <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
     </nav>
@@ -136,7 +136,7 @@
                 </div>
 
                 <a style="color:lightgray;  text-decoration: none;" href="/" class="menu-title">
-                    <img style="vertical-align:middle" src="/logo.png" height="32" width="32"
+                    <img style="vertical-align:middle" src="../logo.png" height="32" width="32"
                         alt="Website main page link." />
                     Cornucopia
                 </a>
@@ -188,27 +188,27 @@
 <p>Your queries consist of PostgreSQL statements using named parameters and decorated by special comment annotations.</p>
 <p>Each query file can contain as many queries as you want and will be translated into a submodule inside your generated code file.</p>
 <h2 id="named-parameters"><a class="header" href="#named-parameters">Named parameters</a></h2>
-<p>In order to make it easier to write robust queries, Cornucopia uses named bind parameters for queries. Named bind parameters start with a colon and are followed by an identifier, like <code>:this</code>. This is only for user convenience though, behind the scenes the query is rewritten using pure PostgreSQL syntax.</p>
-<p>It may seem like a gratuitous deviation from PostgreSQL, but the improved expressivity outweighs the difference in our opinion.</p>
+<p>In order to make it easier to write robust queries, Cornucopia uses named bind parameters for queries. Named bind parameters start with a colon and are followed by an identifier like <code>:this</code>. This is only for user convenience though, behind the scenes the query is rewritten using pure PostgreSQL syntax.</p>
+<p>It may seem like a gratuitous deviation from PostgreSQL, but the improved expressivity is worth it in our opinion.</p>
 <div id="admonition-warning" class="admonition warning">
 <div class="admonition-title">
 <p>Warning</p>
 <p><a class="admonition-anchor-link" href="#admonition-warning"></a></p>
 </div>
 <div>
-<p>PostgreSQL queries <strong>MUST</strong> use named parameters (like <code>:name</code>) instead of indexed ones like <code>$3</code>.</p>
+<p>Queries <strong>MUST</strong> use named parameters (like <code>:name</code>) instead of indexed ones like <code>$3</code>.</p>
 </div>
 </div>
 <h2 id="annotations"><a class="header" href="#annotations">Annotations</a></h2>
 <p>Each SQL query that is to be used with Cornucopia must be annotated using simple SQL comments. These special comments are parsed by Cornucopia and allow you to customize the generated code.</p>
 <p>In addition to query annotations, you can also use type annotations to reuse returned columns and parameters between multiple queries.</p>
-<p>The next subsections cover query and type annotations.</p>
+<p>The next subsections cover query and type annotations in greater detail.</p>
 
                 </main>
 
                 <nav class="nav-wrapper" aria-label="Page navigation">
                     <!-- Mobile navigation buttons -->
-                    <a rel="prev" href="../using_cornnucopia/api.html" class="mobile-nav-chapters previous"
+                    <a rel="prev" href="../using_cornucopia/api.html" class="mobile-nav-chapters previous"
                         title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
@@ -224,7 +224,7 @@
         </div>
 
         <nav class="nav-wide-wrapper" aria-label="Page navigation">
-            <a rel="prev" href="../using_cornnucopia/api.html" class="nav-chapters previous" title="Previous chapter"
+            <a rel="prev" href="../using_cornucopia/api.html" class="nav-chapters previous" title="Previous chapter"
                 aria-label="Previous chapter" aria-keyshortcuts="Left">
                 <i class="fa fa-angle-left"></i>
             </a>
@@ -237,6 +237,22 @@
 
     </div>
 
+    <!-- Livereload script (if served using the cli tool) -->
+    <script type="text/javascript">
+        const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+        const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+        const socket = new WebSocket(wsAddress);
+        socket.onmessage = function (event) {
+            if (event.data === "reload") {
+                socket.close();
+                location.reload();
+            }
+        };
+
+        window.onbeforeunload = function () {
+            socket.close();
+        }
+    </script>
 
 
 

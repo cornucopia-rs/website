@@ -12,7 +12,7 @@
     <!-- Custom HTML head -->
     
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-    <meta name="description" content="The Cornucopia book..">
+    <meta name="description" content="The Cornucopia book.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#ffffff" />
 
@@ -101,7 +101,7 @@
 
     <nav id="sidebar" class="sidebar" aria-label="Table of contents">
         <div class="sidebar-scrollbox">
-            <ol class="chapter"><li class="chapter-item expanded "><a href="../introduction/introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../introduction/installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="../introduction/dependencies.html"><strong aria-hidden="true">1.2.</strong> Dependencies</a></li><li class="chapter-item expanded "><a href="../introduction/types.html"><strong aria-hidden="true">1.3.</strong> Supported types</a></li></ol></li><li class="chapter-item expanded "><a href="../using_cornnucopia/using_cornnucopia.html"><strong aria-hidden="true">2.</strong> Using Cornucopia</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../using_cornnucopia/cli.html"><strong aria-hidden="true">2.1.</strong> CLI</a></li><li class="chapter-item expanded "><a href="../using_cornnucopia/api.html"><strong aria-hidden="true">2.2.</strong> API</a></li></ol></li><li class="chapter-item expanded "><a href="../writing_queries/writing_queries.html"><strong aria-hidden="true">3.</strong> Writing queries</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../writing_queries/query_annotations.html" class="active"><strong aria-hidden="true">3.1.</strong> Query annotations</a></li><li class="chapter-item expanded "><a href="../writing_queries/type_annotations.html"><strong aria-hidden="true">3.2.</strong> Type annotations</a></li></ol></li><li class="chapter-item expanded "><a href="../using_queries/using_queries.html"><strong aria-hidden="true">4.</strong> Using your generated queries</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../using_queries/db_connections.html"><strong aria-hidden="true">4.1.</strong> Database connections</a></li></ol></li><li class="chapter-item expanded "><a href="../examples.html"><strong aria-hidden="true">5.</strong> Examples</a></li><li class="chapter-item expanded "><a href="../contributing.html"><strong aria-hidden="true">6.</strong> Contributing</a></li></ol>
+            <ol class="chapter"><li class="chapter-item expanded "><a href="../introduction/introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../introduction/installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="../introduction/dependencies.html"><strong aria-hidden="true">1.2.</strong> Dependencies</a></li><li class="chapter-item expanded "><a href="../introduction/types.html"><strong aria-hidden="true">1.3.</strong> Supported types</a></li></ol></li><li class="chapter-item expanded "><a href="../using_cornucopia/using_cornucopia.html"><strong aria-hidden="true">2.</strong> Using Cornucopia</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../using_cornucopia/cli.html"><strong aria-hidden="true">2.1.</strong> CLI</a></li><li class="chapter-item expanded "><a href="../using_cornucopia/api.html"><strong aria-hidden="true">2.2.</strong> API</a></li></ol></li><li class="chapter-item expanded "><a href="../writing_queries/writing_queries.html"><strong aria-hidden="true">3.</strong> Writing queries</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../writing_queries/query_annotations.html" class="active"><strong aria-hidden="true">3.1.</strong> Query annotations</a></li><li class="chapter-item expanded "><a href="../writing_queries/type_annotations.html"><strong aria-hidden="true">3.2.</strong> Type annotations</a></li></ol></li><li class="chapter-item expanded "><a href="../using_queries/using_queries.html"><strong aria-hidden="true">4.</strong> Using your generated queries</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../using_queries/db_connections.html"><strong aria-hidden="true">4.1.</strong> Database connections</a></li></ol></li><li class="chapter-item expanded "><a href="../examples.html"><strong aria-hidden="true">5.</strong> Examples</a></li><li class="chapter-item expanded "><a href="../contributing.html"><strong aria-hidden="true">6.</strong> Contributing</a></li></ol>
         </div>
         <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
     </nav>
@@ -136,7 +136,7 @@
                 </div>
 
                 <a style="color:lightgray;  text-decoration: none;" href="/" class="menu-title">
-                    <img style="vertical-align:middle" src="/logo.png" height="32" width="32"
+                    <img style="vertical-align:middle" src="../logo.png" height="32" width="32"
                         alt="Website main page link." />
                     Cornucopia
                 </a>
@@ -185,37 +185,48 @@
             <div id="content" class="content">
                 <main>
                     <h1 id="query-annotations"><a class="header" href="#query-annotations">Query annotations</a></h1>
-<p>Query annotations decorate a SQL statement and describe the name, parameters and returned row of the query.</p>
+<p>Query annotations decorate a SQL statement and describe the name, parameters and returned row columns of the query.</p>
 <p>At their most basic, they look like this</p>
-<pre><code class="language-sql">--! select_authors_from_country
+<pre><code class="language-sql">--! authors_from_country
 SELECT id, name, age 
 FROM Authors 
 WHERE Authors.nationality = :country;
 </code></pre>
 <p>The <code>--!</code> token indicates a Cornucopia query annotation, and <code>select_authors</code> is the name of the query.</p>
+<p>Cornucopia will actually prepare your queries against your schema, automatically finding the parameters, row columns and their respective types. That is why in most simple queries, you don't have to specify the parameters or row columns: only the query name is required.</p>
+<p>That said, you can also go further than this simple syntax in order to customize your queries, as you will learn in the next sections </p>
+<div id="admonition-note" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="#admonition-note"></a></p>
+</div>
+<div>
+<p>Query annotations are declared with this token: <code>--!</code></p>
+</div>
+</div>
 <h2 id="nullity"><a class="header" href="#nullity">Nullity</a></h2>
-<p>By default, parameters and returned row columns will all be inferred as non-null. If you want to control their nullity, you can use the <code>?</code> syntax:</p>
-<pre><code class="language-sql">--! select_authors_from_country (country?) : (age?)
+<p>By default, parameters and returned row columns will all be inferred as non-null. If you want to control their nullity, you can use the question mark (<code>?</code>) syntax:</p>
+<pre><code class="language-sql">--! authors_from_country (country?) : (age?)
 SELECT id, name, age 
 FROM Authors 
 WHERE Authors.nationality = :country;
 </code></pre>
-<p>which means that the parameter <code>country</code> and returned column <code>age</code> will be inferred as nullable (<code>Option</code> in Rust). The set of parenthesis before the colon represents bind parameters, while the one after represents returned row columns (both optional).</p>
+<p>The <code>(country?)</code> and <code>(age?)</code> annotations mean that the parameter <code>country</code> and returned column <code>age</code> will be inferred as nullable (<code>Option</code> in Rust). </p>
+<div id="admonition-note-1" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="#admonition-note-1"></a></p>
+</div>
+<div>
+<p>Use a colon (<code>:</code>) to separate bind parameters from row columns (both are optional, only the query name is required).</p>
+</div>
+</div>
 <p>You can also granularly modify the nullity of composites and arrays like so:</p>
-<pre><code class="language-sql">--! select_authors_from_country : (compos?.some_field?, arr?[?])
+<pre><code class="language-sql">--! example_query : (compos?.some_field?, arr?[?])
 SELECT compos, arr 
 FROM example 
 </code></pre>
 <p>which means that the <code>compos</code> column and its field <code>some_field</code> are both nullable and that the <code>arr</code> column and its elements are also nullable.</p>
-<h2 id="generated-item-names"><a class="header" href="#generated-item-names">Generated item names</a></h2>
-<p>By default, Cornucopia will generate a <code>struct</code> for your parameters (as a whole) and for the returned row. The name of these items is based on the name of the query. </p>
-<p>If you want to customize the generated items' names, you can use</p>
-<pre><code class="language-sql">--! select_authors_from_country (country?) : Author()
-SELECT id, name, age 
-FROM Authors 
-WHERE Authors.nationality = :country;
-</code></pre>
-<p>This way, the generated struct for the returned row of this query will be named <code>Author</code> instead of <code>SelectAuthorsFromCountry</code>. The parameter struct will not be renamed.</p>
 
                 </main>
 
@@ -250,6 +261,22 @@ WHERE Authors.nationality = :country;
 
     </div>
 
+    <!-- Livereload script (if served using the cli tool) -->
+    <script type="text/javascript">
+        const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+        const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+        const socket = new WebSocket(wsAddress);
+        socket.onmessage = function (event) {
+            if (event.data === "reload") {
+                socket.close();
+                location.reload();
+            }
+        };
+
+        window.onbeforeunload = function () {
+            socket.close();
+        }
+    </script>
 
 
 

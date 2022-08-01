@@ -11,7 +11,7 @@ The following list details supported connections for each configuration.
 * `tokio_postgres::Client`
 * `tokio_postgres::Transaction`
 
-## Deadpool
+## Async + Deadpool
 * `tokio_postgres::Client`
 * `tokio_postgres::Transaction`
 * `deadpool_postgres::Client`

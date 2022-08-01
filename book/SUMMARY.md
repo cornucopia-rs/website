@@ -3,9 +3,9 @@
     - [Dependencies](./introduction/dependencies.md)
     - [Supported types](./introduction/types.md)
 
-- [Using Cornucopia](./using_cornnucopia/using_cornnucopia.md)
-    - [CLI](./using_cornnucopia/cli.md)
-    - [API](./using_cornnucopia/api.md)
+- [Using Cornucopia](./using_cornucopia/using_cornucopia.md)
+    - [CLI](./using_cornucopia/cli.md)
+    - [API](./using_cornucopia/api.md)
 
 - [Writing queries](./writing_queries/writing_queries.md)
     - [Query annotations](./writing_queries/query_annotations.md)

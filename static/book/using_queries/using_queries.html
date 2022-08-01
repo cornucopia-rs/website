@@ -12,7 +12,7 @@
     <!-- Custom HTML head -->
     
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-    <meta name="description" content="The Cornucopia book..">
+    <meta name="description" content="The Cornucopia book.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#ffffff" />
 
@@ -101,7 +101,7 @@
 
     <nav id="sidebar" class="sidebar" aria-label="Table of contents">
         <div class="sidebar-scrollbox">
-            <ol class="chapter"><li class="chapter-item expanded "><a href="../introduction/introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../introduction/installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="../introduction/dependencies.html"><strong aria-hidden="true">1.2.</strong> Dependencies</a></li><li class="chapter-item expanded "><a href="../introduction/types.html"><strong aria-hidden="true">1.3.</strong> Supported types</a></li></ol></li><li class="chapter-item expanded "><a href="../using_cornnucopia/using_cornnucopia.html"><strong aria-hidden="true">2.</strong> Using Cornucopia</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../using_cornnucopia/cli.html"><strong aria-hidden="true">2.1.</strong> CLI</a></li><li class="chapter-item expanded "><a href="../using_cornnucopia/api.html"><strong aria-hidden="true">2.2.</strong> API</a></li></ol></li><li class="chapter-item expanded "><a href="../writing_queries/writing_queries.html"><strong aria-hidden="true">3.</strong> Writing queries</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../writing_queries/query_annotations.html"><strong aria-hidden="true">3.1.</strong> Query annotations</a></li><li class="chapter-item expanded "><a href="../writing_queries/type_annotations.html"><strong aria-hidden="true">3.2.</strong> Type annotations</a></li></ol></li><li class="chapter-item expanded "><a href="../using_queries/using_queries.html" class="active"><strong aria-hidden="true">4.</strong> Using your generated queries</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../using_queries/db_connections.html"><strong aria-hidden="true">4.1.</strong> Database connections</a></li></ol></li><li class="chapter-item expanded "><a href="../examples.html"><strong aria-hidden="true">5.</strong> Examples</a></li><li class="chapter-item expanded "><a href="../contributing.html"><strong aria-hidden="true">6.</strong> Contributing</a></li></ol>
+            <ol class="chapter"><li class="chapter-item expanded "><a href="../introduction/introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../introduction/installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="../introduction/dependencies.html"><strong aria-hidden="true">1.2.</strong> Dependencies</a></li><li class="chapter-item expanded "><a href="../introduction/types.html"><strong aria-hidden="true">1.3.</strong> Supported types</a></li></ol></li><li class="chapter-item expanded "><a href="../using_cornucopia/using_cornucopia.html"><strong aria-hidden="true">2.</strong> Using Cornucopia</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../using_cornucopia/cli.html"><strong aria-hidden="true">2.1.</strong> CLI</a></li><li class="chapter-item expanded "><a href="../using_cornucopia/api.html"><strong aria-hidden="true">2.2.</strong> API</a></li></ol></li><li class="chapter-item expanded "><a href="../writing_queries/writing_queries.html"><strong aria-hidden="true">3.</strong> Writing queries</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../writing_queries/query_annotations.html"><strong aria-hidden="true">3.1.</strong> Query annotations</a></li><li class="chapter-item expanded "><a href="../writing_queries/type_annotations.html"><strong aria-hidden="true">3.2.</strong> Type annotations</a></li></ol></li><li class="chapter-item expanded "><a href="../using_queries/using_queries.html" class="active"><strong aria-hidden="true">4.</strong> Using your generated queries</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../using_queries/db_connections.html"><strong aria-hidden="true">4.1.</strong> Database connections</a></li></ol></li><li class="chapter-item expanded "><a href="../examples.html"><strong aria-hidden="true">5.</strong> Examples</a></li><li class="chapter-item expanded "><a href="../contributing.html"><strong aria-hidden="true">6.</strong> Contributing</a></li></ol>
         </div>
         <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
     </nav>
@@ -136,7 +136,7 @@
                 </div>
 
                 <a style="color:lightgray;  text-decoration: none;" href="/" class="menu-title">
-                    <img style="vertical-align:middle" src="/logo.png" height="32" width="32"
+                    <img style="vertical-align:middle" src="../logo.png" height="32" width="32"
                         alt="Website main page link." />
                     Cornucopia
                 </a>
@@ -187,45 +187,38 @@
                     <h1 id="using-your-generated-queries"><a class="header" href="#using-your-generated-queries">Using your generated queries</a></h1>
 <p>Once you have written your queries and generated your Rust code with Cornucopia, it's time to use them. Hurray 🎉!</p>
 <p>Let's say you have generated your Rust module into <code>src/cornucopia.rs</code>, then this is as simple as importing the items you need from it, like so:</p>
-<pre><code class="language-rust">use cornucopia::authors;
+<pre><code class="language-rust">mod cornucopia;
+
+use cornucopia::authors;
 </code></pre>
+<h1 id="building-the-query-object"><a class="header" href="#building-the-query-object">Building the query object</a></h1>
+<p>Building a query object starts with either the query function:</p>
+<pre><code class="language-rust">authors().bind(&amp;client, Some(&quot;Greece&quot;));
+</code></pre>
+<p>or the generated parameter struct:</p>
+<pre><code class="language-rust">use cornucopia_async::Params;
+
+authors().params(
+    &amp;client, 
+    AuthorsParams {
+        country: Some(&quot;Greece&quot;)
+    }
+);
+</code></pre>
+<p>The query function is useful when you have a few obvious parameters, while the parameter struct is more explicit.</p>
+<p>Note that in order to use the <code>params</code> method, you need to import the <code>Params</code> trait from your (sync or async) cornucopia client.</p>
 <div id="admonition-note" class="admonition note">
 <div class="admonition-title">
 <p>Note</p>
 <p><a class="admonition-anchor-link" href="#admonition-note"></a></p>
 </div>
 <div>
-<p>When a query's parameter or row has only one column, Cornucopia will not generate a struct for the parameter or row and use the inner type instead. Don't waste time looking for these items!</p>
-</div>
-</div>
-<h1 id="building-the-query-object"><a class="header" href="#building-the-query-object">Building the query object</a></h1>
-<p>Building a query starts with either the query function:</p>
-<pre><code class="language-rust">authors().bind(&amp;client, Some(&quot;Greece&quot;));
-</code></pre>
-<p>or the generated parameter struct:</p>
-<pre><code class="language-rust">AuthorsParams {
-    country: Some(&quot;Greece&quot;)
-}.bind(&amp;client);
-</code></pre>
-<p>The query function is useful when you have a few obvious parameters, while the parameter struct is more explicit.</p>
-<p>If you want even more clarity, you can mix both styles:</p>
-<pre><code class="language-rust">authors().params(&amp;client, AuthorsParams {
-    country: Some(&quot;Greece&quot;)
-});
-</code></pre>
-<div id="admonition-note-1" class="admonition note">
-<div class="admonition-title">
-<p>Note</p>
-<p><a class="admonition-anchor-link" href="#admonition-note-1"></a></p>
-</div>
-<div>
-<p>Queries that don't have a return value (insertions, for example) don't generate a query object. Instead, when calling <code>bind</code> or <code>params</code> they execute and return the number of rows affected.</p>
+<p>Queries that don't have a return value (simple insertions, for example) don't generate a query object. Instead, when calling <code>bind</code> or <code>params</code> they execute and return the number of rows affected.</p>
 </div>
 </div>
 <h1 id="row-mapping-optional"><a class="header" href="#row-mapping-optional">Row mapping (optional)</a></h1>
-<p>Query objects have a <code>map</code> method that allows them to transform the query's returned rows without requiring intermediate allocation:</p>
-<pre><code class="language-rust">
-enum Country {
+<p>Query objects have a <code>map</code> method that allows them to transform the query's returned rows without requiring intermediate allocation. The following example is pretty contrived but illustrates how you can use this feature.</p>
+<pre><code class="language-rust">enum Country {
     Greece,
     TheRest
 }
@@ -235,53 +228,52 @@ impl&lt;'a&gt; From&lt;&amp;'a str&gt; for Country {
         if s == &quot;Greece&quot; {
             Self::Greece
         } else {
-                Self::TheRest
+            Self::TheRest
         }
     }
 }
 
 struct CustomAuthor {
     full_name: String,
+    country: Country,
     age: usize,
-    country: String
 }
 
-all_authors()
-    .bind(&amp;client, Some(&quot;Greece&quot;))
+authors()
+    .bind(&amp;client)
     .map(|author| {
         let full_name = format!(
             &quot;{}, {}&quot;,
             author.last_name.to_uppercase(),
             author.first_name
         );
+        let country = Country::from(author.country);
         CustomAuthor {
-            full_name:,
+            full_name,
+            country,
             age: author.age,
-            country: author.country.into()
         }
     });
-
 </code></pre>
 <p>The result of a map is another query object.</p>
 <h1 id="getting-rows-out-of-your-queries"><a class="header" href="#getting-rows-out-of-your-queries">Getting rows out of your queries</a></h1>
-<p>Once the query has been built, use one of the following methods to select the expected number of rows.</p>
+<p>Once the query object has been built, use one of the following methods to select the expected number of rows:</p>
 <ul>
 <li><code>opt</code>: one or zero rows (error otherwise).</li>
 <li><code>one</code>: exactly one row (error otherwise).</li>
 <li><code>iter</code>: iterator of zero or more rows.</li>
 <li><code>all</code>: like <code>iter</code>, but collects the rows in a  <code>Vec</code>.</li>
 </ul>
-<p>Here are some examples:</p>
+<p>Here are some example uses:</p>
 <pre><code class="language-rust">author_by_id().bind(&amp;client, &amp;0).opt().await?;
 author_by_id().bind(&amp;client, &amp;0).one().await?; // Error if this author id doesn't exist
-select_42().bind(&amp;client).one().await?;
-all_authors().bind(&amp;client).all().await?;
-iter_authors().bind(&amp;client).iter().await?.collect::&lt;Vec&lt;_&gt;&gt;();
+authors().bind(&amp;client).all().await?;
+authors().bind(&amp;client).iter().await?.collect::&lt;Vec&lt;_&gt;&gt;(); // Acts the same as the previous line
 </code></pre>
-<div id="admonition-note-2" class="admonition note">
+<div id="admonition-note-1" class="admonition note">
 <div class="admonition-title">
 <p>Note</p>
-<p><a class="admonition-anchor-link" href="#admonition-note-2"></a></p>
+<p><a class="admonition-anchor-link" href="#admonition-note-1"></a></p>
 </div>
 <div>
 <p>If your queries are sync, you don't need to <code>.await</code> them.</p>
@@ -320,6 +312,22 @@ iter_authors().bind(&amp;client).iter().await?.collect::&lt;Vec&lt;_&gt;&gt;();
 
     </div>
 
+    <!-- Livereload script (if served using the cli tool) -->
+    <script type="text/javascript">
+        const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+        const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+        const socket = new WebSocket(wsAddress);
+        socket.onmessage = function (event) {
+            if (event.data === "reload") {
+                socket.close();
+                location.reload();
+            }
+        };
+
+        window.onbeforeunload = function () {
+            socket.close();
+        }
+    </script>
 
 
 

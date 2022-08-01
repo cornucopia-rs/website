@@ -12,7 +12,7 @@
     <!-- Custom HTML head -->
     
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-    <meta name="description" content="The Cornucopia book..">
+    <meta name="description" content="The Cornucopia book.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#ffffff" />
 
@@ -101,7 +101,7 @@
 
     <nav id="sidebar" class="sidebar" aria-label="Table of contents">
         <div class="sidebar-scrollbox">
-            <ol class="chapter"><li class="chapter-item expanded "><a href="../introduction/introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../introduction/installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="../introduction/dependencies.html"><strong aria-hidden="true">1.2.</strong> Dependencies</a></li><li class="chapter-item expanded "><a href="../introduction/types.html"><strong aria-hidden="true">1.3.</strong> Supported types</a></li></ol></li><li class="chapter-item expanded "><a href="../using_cornnucopia/using_cornnucopia.html" class="active"><strong aria-hidden="true">2.</strong> Using Cornucopia</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../using_cornnucopia/cli.html"><strong aria-hidden="true">2.1.</strong> CLI</a></li><li class="chapter-item expanded "><a href="../using_cornnucopia/api.html"><strong aria-hidden="true">2.2.</strong> API</a></li></ol></li><li class="chapter-item expanded "><a href="../writing_queries/writing_queries.html"><strong aria-hidden="true">3.</strong> Writing queries</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../writing_queries/query_annotations.html"><strong aria-hidden="true">3.1.</strong> Query annotations</a></li><li class="chapter-item expanded "><a href="../writing_queries/type_annotations.html"><strong aria-hidden="true">3.2.</strong> Type annotations</a></li></ol></li><li class="chapter-item expanded "><a href="../using_queries/using_queries.html"><strong aria-hidden="true">4.</strong> Using your generated queries</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../using_queries/db_connections.html"><strong aria-hidden="true">4.1.</strong> Database connections</a></li></ol></li><li class="chapter-item expanded "><a href="../examples.html"><strong aria-hidden="true">5.</strong> Examples</a></li><li class="chapter-item expanded "><a href="../contributing.html"><strong aria-hidden="true">6.</strong> Contributing</a></li></ol>
+            <ol class="chapter"><li class="chapter-item expanded "><a href="../introduction/introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../introduction/installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="../introduction/dependencies.html"><strong aria-hidden="true">1.2.</strong> Dependencies</a></li><li class="chapter-item expanded "><a href="../introduction/types.html"><strong aria-hidden="true">1.3.</strong> Supported types</a></li></ol></li><li class="chapter-item expanded "><a href="../using_cornucopia/using_cornucopia.html" class="active"><strong aria-hidden="true">2.</strong> Using Cornucopia</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../using_cornucopia/cli.html"><strong aria-hidden="true">2.1.</strong> CLI</a></li><li class="chapter-item expanded "><a href="../using_cornucopia/api.html"><strong aria-hidden="true">2.2.</strong> API</a></li></ol></li><li class="chapter-item expanded "><a href="../writing_queries/writing_queries.html"><strong aria-hidden="true">3.</strong> Writing queries</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../writing_queries/query_annotations.html"><strong aria-hidden="true">3.1.</strong> Query annotations</a></li><li class="chapter-item expanded "><a href="../writing_queries/type_annotations.html"><strong aria-hidden="true">3.2.</strong> Type annotations</a></li></ol></li><li class="chapter-item expanded "><a href="../using_queries/using_queries.html"><strong aria-hidden="true">4.</strong> Using your generated queries</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../using_queries/db_connections.html"><strong aria-hidden="true">4.1.</strong> Database connections</a></li></ol></li><li class="chapter-item expanded "><a href="../examples.html"><strong aria-hidden="true">5.</strong> Examples</a></li><li class="chapter-item expanded "><a href="../contributing.html"><strong aria-hidden="true">6.</strong> Contributing</a></li></ol>
         </div>
         <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
     </nav>
@@ -136,7 +136,7 @@
                 </div>
 
                 <a style="color:lightgray;  text-decoration: none;" href="/" class="menu-title">
-                    <img style="vertical-align:middle" src="/logo.png" height="32" width="32"
+                    <img style="vertical-align:middle" src="../logo.png" height="32" width="32"
                         alt="Website main page link." />
                     Cornucopia
                 </a>
@@ -185,16 +185,16 @@
             <div id="content" class="content">
                 <main>
                     <h1 id="using-cornucopia"><a class="header" href="#using-cornucopia">Using Cornucopia</a></h1>
-<p>You can use Cornucopia as a CLI or a library API depending on your needs. The CLI is simpler and allows you to use the same binary for all your projects, but the library can be used to integrate or automate Cornucopia as part of your software.</p>
-<h2 id="workflow"><a class="header" href="#workflow">Workflow</a></h2>
+<p>You can use Cornucopia as a CLI or a library API depending on your needs. The CLI is simpler and allows you to use the same binary for all your projects, but the library can be used to integrate or automate Cornucopia as part of your own project.</p>
+<h2 id="workflows"><a class="header" href="#workflows">Workflows</a></h2>
 <p>Cornucopia is flexible with how it can be used. Here are some useful workflows when developing with Cornucopia:</p>
 <h3 id="basic"><a class="header" href="#basic">Basic</a></h3>
-<p>This is the simplest workflow. Create directories <code>queries/</code> and <code>migrations/</code> at the root of your project containing your PostgreSQL queries and migrations respectively. Then, run the CLI to generate a <code>cornucopia.rs</code> file in your <code>src/</code> folder. You're done! Now you can import your generated query items from the <code>cornucopia</code> module. </p>
-<p>When you modify your queries or migrations, you simply have to rerun the CLI to update the generated code.</p>
+<p>This is the simplest workflow. Create a <code>queries/</code> directory containing your PostgreSQL queries at the root of your crate. Then, run the CLI to generate a <code>cornucopia.rs</code> file in your <code>src/</code> folder. Note that the CLI will require the path to one or more PostgreSQL schemas to build against. </p>
+<p>You're done! Now you can import your generated query items from the <code>cornucopia</code> module. When you modify your queries or schemas, you can re-run the CLI to update the generated code.</p>
 <h3 id="automatic-query-rebuild"><a class="header" href="#automatic-query-rebuild">Automatic query rebuild</a></h3>
-<p>The setup is the same as the basic workflow, but instead of using the CLI to generate your queries, create a <code>build.rs</code> build script that invokes Cornucopia's API. Build scripts have built-in functionalities that allow them to be re-executed every time your queries or migrations directories change. See the <a href="https://github.com/cornucopia-rs/cornucopia/tree/main/examples/auto_build">example</a> for details.</p>
+<p>The setup is the same as the basic workflow, but instead of using the CLI to generate your queries, create a <code>build.rs</code> build script that invokes Cornucopia's API. Build scripts have built-in functionalities that allow them to be re-executed every time your queries or schema(s) change. See this <a href="https://github.com/cornucopia-rs/cornucopia/tree/main/examples/auto_build">example</a> for details.</p>
 <h3 id="self-managed-database"><a class="header" href="#self-managed-database">Self-managed database</a></h3>
-<p>With this workflow, you don't need a container manager, nor to use Cornucopia's migration manager. Set up your database in the state you want, then use Cornucopia's <code>live</code> functionality to build directly against this database using a connection URL. Both the CLI and API support this.</p>
+<p>With this workflow, you don't need a container manager at all. Set up your database in the state you want, then use Cornucopia's <code>live</code> functionality to build directly against this database using a connection URL. Both the CLI and API support this.</p>
 
                 </main>
 
@@ -205,7 +205,7 @@
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next" href="../using_cornnucopia/cli.html" class="mobile-nav-chapters next"
+                    <a rel="next" href="../using_cornucopia/cli.html" class="mobile-nav-chapters next"
                         title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
@@ -221,7 +221,7 @@
                 <i class="fa fa-angle-left"></i>
             </a>
 
-            <a rel="next" href="../using_cornnucopia/cli.html" class="nav-chapters next" title="Next chapter"
+            <a rel="next" href="../using_cornucopia/cli.html" class="nav-chapters next" title="Next chapter"
                 aria-label="Next chapter" aria-keyshortcuts="Right">
                 <i class="fa fa-angle-right"></i>
             </a>
@@ -229,6 +229,22 @@
 
     </div>
 
+    <!-- Livereload script (if served using the cli tool) -->
+    <script type="text/javascript">
+        const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+        const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+        const socket = new WebSocket(wsAddress);
+        socket.onmessage = function (event) {
+            if (event.data === "reload") {
+                socket.close();
+                location.reload();
+            }
+        };
+
+        window.onbeforeunload = function () {
+            socket.close();
+        }
+    </script>
 
 
 

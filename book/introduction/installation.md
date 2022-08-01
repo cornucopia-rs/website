@@ -14,7 +14,7 @@ cornucopia = "..." # choose the desired version
 ```
 
 ## Container manager
-When running in managed mode, Cornucopia spawns a postgres container that acts as an ephemeral database. Therefore, you need a working `docker` or `podman` command available on your system.
+When running in managed mode, Cornucopia spawns a container running a PostgreSQL instance that acts as an ephemeral database. Therefore, you need a working `docker` or `podman` command available on your system.
 
 #### Docker
 To use Cornucopia with `docker` on Linux, non-sudo users need to be in the docker group. For a step-by-step guide, please read the official Docker [installation](https://docs.docker.com/get-docker/) and [post-installation](https://docs.docker.com/engine/install/linux-postinstall/) docs.
