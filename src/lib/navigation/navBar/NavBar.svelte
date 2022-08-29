@@ -49,11 +49,13 @@
 		</div>
 	</div>
 
-	{#if $appState.sidebarOpen}
-		<div class="absolute sm:hidden pt-32 top-0 h-screen w-full -z-10 flex bg-base-100 py-14 px-4">
-			<div class="w-full overflow-y-auto">
-				<slot />
+	{#if $appState.screenSize === 'Small'}
+		{#if $appState.sidebarOpen}
+			<div class="absolute pt-32 top-0 h-screen w-full -z-10 flex bg-base-100 py-14 px-4">
+				<div class="w-full overflow-y-auto">
+					<slot />
+				</div>
 			</div>
-		</div>
+		{/if}
 	{/if}
 </header>
