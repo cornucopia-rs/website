@@ -39,7 +39,7 @@
 				<div class="w-auto relative">
 					<Logo />
 				</div>
-				<div class="flex ml-auto items-center space-x-4">
+				<div class="flex ml-auto items-center md:space-x-8">
 					<Book />
 
 					<GithubLink />
