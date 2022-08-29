@@ -1,7 +1,7 @@
 <script>
 	import Github from '$lib/icons/companies/Github.svelte';
-	export let textClass = 'sm:hidden';
 	export let iconSize = 'h-6 w-6 sm:w-8 sm:h-8';
+	import { appState } from '$lib/utils/appState';
 </script>
 
 <a
@@ -9,5 +9,7 @@
 	href="https://github.com/cornucopia-rs/cornucopia"
 >
 	<Github class="{iconSize} text-white opacity-80 hover:text-white hover:scale-105 " />
-	<h1 class={textClass}>Go to Github</h1>
+	{#if $appState.screenSize === 'Small'}
+		<h1>Go to Github</h1>
+	{/if}
 </a>
