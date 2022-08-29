@@ -29,10 +29,10 @@
 			>
 		</p>
 		<span
-			class="inline-flex justify-center mt-4 space-x-8 md:space-x-0  opacity-50 sm:ml-auto sm:mt-0 sm:justify-start"
+			class="flex items-center mt-4 mx-6 space-x-8   opacity-50 sm:ml-auto sm:mt-0 sm:justify-start"
 		>
-			<GithubLink iconSize="h-8 w-8" textClass="hidden" />
-			<DiscordLink iconSize="h-8 w-8" textClass="hidden" />
+			<GithubLink footerClass="hidden" />
+			<DiscordLink footerClass="hidden" />
 		</span>
 	</div>
 </footer>

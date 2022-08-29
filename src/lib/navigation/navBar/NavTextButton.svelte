@@ -11,7 +11,7 @@
 </script>
 
 <Button
-	componentClass="tracking-wider space-x-4 text-grey-200 hover:text-primary lg:px-4 text-xl lg:text-2xl font-normal normal-case "
+	componentClass="tracking-wider space-x-4 text-grey-200 hover:text-secondary lg:px-4 text-xl lg:text-2xl font-medium normal-case "
 	{handleClick}
 	><slot />
 </Button>
