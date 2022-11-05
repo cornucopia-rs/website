@@ -1,6 +1,6 @@
 [book]
 title = "Cornucopia"
-authors = ["louisgariepy"]
+authors = ["LouisGariepy"]
 description = "The Cornucopia book."
 language = "en"
 multilingual = false
@@ -30,4 +30,5 @@ runnable = false
 
 [preprocessor.admonish]
 command = "mdbook-admonish"
-assets_version = "2.0.0"    # do not edit: managed by `mdbook-admonish install`
+assets_version = "2.0.0" # do not edit: managed by `mdbook-admonish install`
+

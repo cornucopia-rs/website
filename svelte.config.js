@@ -15,16 +15,7 @@ const config = {
 
 	kit: {
 		adapter: adapter(),
-
-		prerender: { default: true },
-		vite: {
-			server: {
-				fs: {
-					allow: ["static"]
-				}
-			}
-		}
 	}
 };
-
+export const prerender = true;
 export default config;
