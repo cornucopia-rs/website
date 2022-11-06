@@ -226,14 +226,15 @@
 <h2 id="optional-extra-types"><a class="header" href="#optional-extra-types">(Optional) Extra types</a></h2>
 <p>You can enable additional support for additional PostgreSQL types by adding the corresponding crates and driver features. </p>
 <div class="table-wrapper"><table><thead><tr><th>Crate</th><th>PostgreSQL</th><th>Rust</th><th>driver feature</th></tr></thead><tbody>
-<tr><td><code>serde_json</code></td><td><code>Json</code> <code>JsonB</code></td><td><code>Value</code></td><td><code>with-serde_json-1</code></td></tr>
+<tr><td><code>serde_json</code></td><td><code>Json</code> <code>JsonB</code></td><td><code>Value</code></td><td><code>with-serde_json-1</code> <em>(*)</em></td></tr>
 <tr><td><code>time</code></td><td><code>Time</code> <code>Date</code> <code>Timestamp</code> <code>TimestampTZ</code></td><td><code>Date</code> <code>Time</code> <code>PrimitiveDateTime</code> <code>OffsetDateTime</code></td><td><code>with-time-0_3</code></td></tr>
 <tr><td><code>uuid</code></td><td><code>Uuid</code></td><td><code>Uuid</code></td><td><code>with-uuid-1</code></td></tr>
 <tr><td><code>eui48</code></td><td><code>MacAddr</code></td><td><code>MacAddress</code></td><td><code>with-eui48-1</code></td></tr>
-<tr><td><code>rust_decimal</code></td><td><code>Numeric</code></td><td><code>Decimal</code></td><td><em>(*)</em></td></tr>
+<tr><td><code>rust_decimal</code></td><td><code>Numeric</code></td><td><code>Decimal</code></td><td><em>(**)</em></td></tr>
 </tbody></table>
 </div>
-<p><em>(*) <code>Decimal</code> doesn't require any driver feature, but it does require enabling <code>rust_decimal</code>'s <code>db-postgres</code> feature.</em></p>
+<p><em>(*) In addition to the driver feature, the <code>with-serde_json-1</code> feature must also be enabled on the Cornucopia client</em>.</p>
+<p><em>(**) Doesn't require any driver feature, but it does require enabling <code>rust_decimal</code>'s <code>db-postgres</code> feature.</em></p>
 <h2 id="optional-row-serialization"><a class="header" href="#optional-row-serialization">(Optional) Row serialization</a></h2>
 <ul>
 <li><code>serde</code> <strong>with the <code>derive</code> feature enabled</strong>.</li>
@@ -246,7 +247,7 @@
 postgres_types = { version = &quot;*&quot;, features = [&quot;derive&quot;] }
 
 # Async
-cornucopia_async = &quot;*&quot;
+cornucopia_async = { version = &quot;*&quot;, features = [&quot;with-serde_json-1&quot;] }
 tokio = { version = &quot;*&quot;, features = [&quot;full&quot;] }
 tokio-postgres = { version = &quot;*&quot;, features = [
     &quot;with-serde_json-1&quot;,

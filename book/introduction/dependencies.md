@@ -32,15 +32,18 @@ You can achieve synchronous connection pooling with `r2d2-postgres` without any 
 ## (Optional) Extra types
 You can enable additional support for additional PostgreSQL types by adding the corresponding crates and driver features. 
 
-| Crate          | PostgreSQL                              | Rust                                               | driver feature      |
-| -------------- | --------------------------------------- | -------------------------------------------------- | ------------------- |
-| `serde_json`   | `Json` `JsonB`                          | `Value`                                            | `with-serde_json-1` |
-| `time`         | `Time` `Date` `Timestamp` `TimestampTZ` | `Date` `Time` `PrimitiveDateTime` `OffsetDateTime` | `with-time-0_3`     |
-| `uuid`         | `Uuid`                                  | `Uuid`                                             | `with-uuid-1`       |
-| `eui48`        | `MacAddr`                               | `MacAddress`                                       | `with-eui48-1`      |
-| `rust_decimal` | `Numeric`                               | `Decimal`                                          | *(\*)*              |
+| Crate          | PostgreSQL                              | Rust                                               | driver feature             |
+| -------------- | --------------------------------------- | -------------------------------------------------- | -------------------------- |
+| `serde_json`   | `Json` `JsonB`                          | `Value`                                            | `with-serde_json-1` *(\*)* |
+| `time`         | `Time` `Date` `Timestamp` `TimestampTZ` | `Date` `Time` `PrimitiveDateTime` `OffsetDateTime` | `with-time-0_3`            |
+| `uuid`         | `Uuid`                                  | `Uuid`                                             | `with-uuid-1`              |
+| `eui48`        | `MacAddr`                               | `MacAddress`                                       | `with-eui48-1`             |
+| `rust_decimal` | `Numeric`                               | `Decimal`                                          | *(\*\*)*                   |
 
-*(\*) `Decimal` doesn't require any driver feature, but it does require enabling `rust_decimal`'s `db-postgres` feature.*
+*(\*) In addition to the driver feature, the `with-serde_json-1` feature must also be enabled on the Cornucopia client*.
+
+*(\*\*) Doesn't require any driver feature, but it does require enabling `rust_decimal`'s `db-postgres` feature.*
+
 ## (Optional) Row serialization
 * `serde` **with the `derive` feature enabled**.
 
@@ -53,7 +56,7 @@ The code block below shows what your dependencies might look like with every fea
 postgres_types = { version = "*", features = ["derive"] }
 
 # Async
-cornucopia_async = "*"
+cornucopia_async = { version = "*", features = ["with-serde_json-1"] }
 tokio = { version = "*", features = ["full"] }
 tokio-postgres = { version = "*", features = [
     "with-serde_json-1",
