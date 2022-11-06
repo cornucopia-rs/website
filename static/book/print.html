@@ -421,6 +421,8 @@ rust_decimal = { version = &quot;*&quot;, features = [&quot;db-postgres&quot;] }
 </code></pre>
 <p>This helps you catch any malformed query annotation, and will offer helpful hints to get you there. If your development environment supports links, you should be able to click the path (here <code>queries/test.sql:1:1</code>) to bring you directly to the error site in your SQL code.</p>
 <p>Cornucopia's error reporting is quite extensive and covers a lot more than the simple case above. You can take a look at our internal <code>integration</code> crate to see our whole error reporting suite.</p>
+<h2 id="error-type"><a class="header" href="#error-type">Error type</a></h2>
+<p>Cornucopia's library API provides a fully fleshed-out error type that you can use if you need more complex error-handling behavior.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="writing-queries"><a class="header" href="#writing-queries">Writing queries</a></h1>
 <p>Your queries consist of PostgreSQL statements using named parameters and decorated by special comment annotations.</p>
 <p>Each query file can contain as many queries as you want and will be translated into a submodule inside your generated code file.</p>

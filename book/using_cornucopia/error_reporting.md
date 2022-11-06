@@ -13,3 +13,6 @@ One of Cornucopia's core goals is to provide best-in-class error reporting. For 
 This helps you catch any malformed query annotation, and will offer helpful hints to get you there. If your development environment supports links, you should be able to click the path (here `queries/test.sql:1:1`) to bring you directly to the error site in your SQL code.
 
 Cornucopia's error reporting is quite extensive and covers a lot more than the simple case above. You can take a look at our internal `integration` crate to see our whole error reporting suite.
+
+## Error type
+Cornucopia's library API provides a fully fleshed-out error type that you can use if you need more complex error-handling behavior.
