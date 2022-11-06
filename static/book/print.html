@@ -489,17 +489,7 @@ FROM example
 </code></pre>
 <p>which means that the <code>compos</code> column and its field <code>some_field</code> are both nullable and that the <code>arr</code> column and its elements are also nullable.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="type-annotations"><a class="header" href="#type-annotations">Type annotations</a></h1>
-<p>Type annotations allow you to create structs for your parameters and rows. This can have many benefits (implementing custom logic on these types, named fields, etc.). Furthermore, this allows Cornucopia to share these types between multiple queries.</p>
-<div id="admonition-note" class="admonition note">
-<div class="admonition-title">
-<p>Note</p>
-<p><a class="admonition-anchor-link" href="writing_queries/type_annotations.html#admonition-note"></a></p>
-</div>
-<div>
-<p>Cornucopia will <strong>automatically</strong> generate a struct <strong>only for parameters which have two or more columns</strong>. The name of the struct is based on the name of the query. For other cases, you will need to write the type annotation yourself.</p>
-<p>Even if the parameter struct is automatically generated, type annotations can still be useful when you want to customize the name of the struct, declutter the query of nullity declarations or share the params struct between multiple queries.</p>
-</div>
-</div>
+<p>Type annotations allow you to customize the structs that Cornucopia generates for your rows (and parameters, see <a href="writing_queries/type_annotations.html#parameter-structs">the section below</a>). Furthermore, this allows you to share these types between multiple queries.</p>
 <p>To create type annotations, declare them using the <code>--:</code> syntax. Type annotations only need to declare the nullable columns. Here's how it looks:</p>
 <pre><code class="language-sql">--: Author(age?)
 
@@ -512,10 +502,10 @@ FROM Authors
 WHERE Authors.nationality = :country;
 </code></pre>
 <p>This will define a struct named <code>Author</code> containing typed fields for the <code>name</code> and <code>age</code> columns (with <code>age</code> being nullable). The same struct will be used for the <code>authors</code> and <code>authors_from_country</code> queries.</p>
-<div id="admonition-note-1" class="admonition note">
+<div id="admonition-note" class="admonition note">
 <div class="admonition-title">
 <p>Note</p>
-<p><a class="admonition-anchor-link" href="writing_queries/type_annotations.html#admonition-note-1"></a></p>
+<p><a class="admonition-anchor-link" href="writing_queries/type_annotations.html#admonition-note"></a></p>
 </div>
 <div>
 <p>Type annotations are declared with this token: <code>--:</code></p>
@@ -529,6 +519,9 @@ FROM Authors
 WHERE Authors.nationality = :country;
 </code></pre>
 <p>Notice how inline types <strong>must</strong> have a set of parenthesis describing their nullable columns. This syntax is often more compact for simple cases. It doesn't have any other special meaning otherwise.</p>
+<h2 id="parameter-structs"><a class="header" href="#parameter-structs">Parameter structs</a></h2>
+<p>Cornucopia will <strong>automatically</strong> generate a parameter struct <strong>if it has more than one column</strong>. The name of the parameter struct is based on the name of the query. You can still manually generate a parameter struct using a type annotation or an inline type.</p>
+<p>In any case, note that you don't <em>need</em> a parameter struct, you can always work directly with the query function (see the section <a href="writing_queries/./../using_queries/using_queries.html#building-the-query-object">query usage</a>).</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="using-your-generated-queries"><a class="header" href="#using-your-generated-queries">Using your generated queries</a></h1>
 <p>Once you have written your queries and generated your Rust code with Cornucopia, it's time to use them. Hurray 🎉!</p>
 <p>Let's say you have generated your Rust module into <code>src/cornucopia.rs</code>, then this is as simple as importing the items you need from it, like so:</p>
