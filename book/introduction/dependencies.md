@@ -32,13 +32,15 @@ You can achieve synchronous connection pooling with `r2d2-postgres` without any 
 ## (Optional) Extra types
 You can enable additional support for additional PostgreSQL types by adding the corresponding crates and driver features. 
 
-| Crate        | PostgreSQL                              | Rust                                               | driver feature      |
-| ------------ | --------------------------------------- | -------------------------------------------------- | ------------------- |
-| `serde_json` | `Json` `JsonB`                          | `Value`                                            | `with-serde_json-1` |
-| `time`       | `Time` `Date` `Timestamp` `TimestampTZ` | `Date` `Time` `PrimitiveDateTime` `OffsetDateTime` | `with-time-0_3`     |
-| `uuid`       | `Uuid`                                  | `Uuid`                                             | `with-uuid-1`       |
-| `eui48`      | `MacAddr`                               | `MacAddress`                                       | `with-eui48-1`      |
+| Crate          | PostgreSQL                              | Rust                                               | driver feature      |
+| -------------- | --------------------------------------- | -------------------------------------------------- | ------------------- |
+| `serde_json`   | `Json` `JsonB`                          | `Value`                                            | `with-serde_json-1` |
+| `time`         | `Time` `Date` `Timestamp` `TimestampTZ` | `Date` `Time` `PrimitiveDateTime` `OffsetDateTime` | `with-time-0_3`     |
+| `uuid`         | `Uuid`                                  | `Uuid`                                             | `with-uuid-1`       |
+| `eui48`        | `MacAddr`                               | `MacAddress`                                       | `with-eui48-1`      |
+| `rust_decimal` | `Numeric`                               | `Decimal`                                          | *(\*)*              |
 
+*(\*) `Decimal` doesn't require any driver feature, but it does require enabling `rust_decimal`'s `db-postgres` feature.*
 ## (Optional) Row serialization
 * `serde` **with the `derive` feature enabled**.
 
@@ -71,6 +73,7 @@ serde_json = "*"
 time = "*"
 uuid = "*"
 eui48 = "*"
+rust_decimal = { version = "*", features = ["db-postgres"] }
 ```
 If you're generating sync code, your dependencies will look a bit different but this should give you a rough idea.
 

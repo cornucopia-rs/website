@@ -1,0 +1,47 @@
+# Ergonomic parameters
+To make working with bind parameters, Cornucopia uses umbrella traits that allow you to pass different concrete types to the same query.
+
+For example:
+```rust
+authors_by_first_name.bind(&client, &"John").all(); // This works
+authors_by_first_name.bind(&client, &String::from("John")).all(); // This also works
+```
+
+Here's the list of umbrella traits and the concrete types they abstract over.
+
+```admonish
+The pseudo trait bounds given here are very informal, but they should be easy enough to understand.
+
+If you need to see exactly what the trait bounds are, these traits are contained in the `cornucopia_client_core` crate.
+```
+
+## `StringSql`
+* `&T` where `T: StringSql`
+* `String`
+* `&str`
+* `Cow<'_, str>`
+* `Box<str>`
+
+## `BytesSql`
+* `&T` where `T: BytesSql`
+* `Vec<u8>`
+* `&[u8]`
+
+## `JsonSql`
+*(This trait is only available if the client crate has the `with-serde_json-1` enabled)*
+* `&T` where `T: JsonSql`
+* `serde_json::Value`
+* `postgres_types::Json`
+
+## `ArraySql`
+* `&T` where `T: ArraySql`
+* `Vec<T>`
+* `&[T]`
+* `IterSql`
+
+### Notes on `IterSql`
+This is a wrapper type available in the client crates. It allows you to treat an iterator as an `ArraySql` for the purpose of passing parameters.
+
+```admonish note
+Ergonomic parameters are not supported in composite types yet. This means that composite types fields will only accept concrete types. It should be possible to lift this restriction in the future.
+```

@@ -21,10 +21,12 @@
 | `uuid`*(\*)*                                      | `uuid::Uuid`              |
 | `inet`*(\*)*                                      | `std::net::IpAddr`        |
 | `macaddr`*(\*)*                                   | `eui48::MacAddress`       |
+| `numeric` *(\*)*                                  | `rust_decimal::Decimal`   |
 
-*(\*) [Optional extra types](/introduction/dependencies.html#optional-extra-types).*
+*(\*) [Optional extra types](./dependencies#optional-extra-types).*
+
 ## Custom types
-Custom types like `enum`s, `composite`s and `domain`s will be generated automatically by inspecting your database. The only requirement for your custom types is that they be based on other supported types (base or custom).
+Custom types like `enum`s, `composite`s and `domain`s will be generated automatically by inspecting your database. The only requirement for your custom types is that they should be based on other supported types (base or custom).
 
 Cornucopia is aware of your types' namespaces (what PostgreSQL calls schemas), so it will correctly handle custom types like `my_schema.my_custom_type`.
 

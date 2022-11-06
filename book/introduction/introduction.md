@@ -20,5 +20,5 @@ Here are some defining features:
 ```admonish info
 If you just want to get started without having to read all of this, you can take a look at our [examples](/examples/examples.html). 
 
-*Still, this book is pretty short and to the point though, so you should probably at least take a glance.*
+*This book is pretty short and to the point though, so you should probably at least take a glance.*
 ```
