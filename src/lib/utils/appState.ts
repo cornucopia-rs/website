@@ -11,7 +11,6 @@ export type ScreenSize = 'Small' | 'Medium' | 'Large';
 function createAppState() {
 	function computeScreenSize(): ScreenSize {
 		const myOuterWidth = window.outerWidth;
-		console.log(myOuterWidth);
 		// sm and - in tailwindCSS
 		if (myOuterWidth < 768) {
 			return 'Small';

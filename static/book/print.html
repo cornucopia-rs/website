@@ -102,7 +102,7 @@
 
     <nav id="sidebar" class="sidebar" aria-label="Table of contents">
         <div class="sidebar-scrollbox">
-            <ol class="chapter"><li class="chapter-item expanded "><a href="introduction/introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="introduction/installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="introduction/dependencies.html"><strong aria-hidden="true">1.2.</strong> Dependencies</a></li><li class="chapter-item expanded "><a href="introduction/types.html"><strong aria-hidden="true">1.3.</strong> Supported types</a></li></ol></li><li class="chapter-item expanded "><a href="using_cornucopia/using_cornucopia.html"><strong aria-hidden="true">2.</strong> Using Cornucopia</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="using_cornucopia/cli.html"><strong aria-hidden="true">2.1.</strong> CLI</a></li><li class="chapter-item expanded "><a href="using_cornucopia/api.html"><strong aria-hidden="true">2.2.</strong> API</a></li></ol></li><li class="chapter-item expanded "><a href="writing_queries/writing_queries.html"><strong aria-hidden="true">3.</strong> Writing queries</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="writing_queries/query_annotations.html"><strong aria-hidden="true">3.1.</strong> Query annotations</a></li><li class="chapter-item expanded "><a href="writing_queries/type_annotations.html"><strong aria-hidden="true">3.2.</strong> Type annotations</a></li></ol></li><li class="chapter-item expanded "><a href="using_queries/using_queries.html"><strong aria-hidden="true">4.</strong> Using your generated queries</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="using_queries/db_connections.html"><strong aria-hidden="true">4.1.</strong> Database connections</a></li></ol></li><li class="chapter-item expanded "><a href="examples.html"><strong aria-hidden="true">5.</strong> Examples</a></li><li class="chapter-item expanded "><a href="contributing.html"><strong aria-hidden="true">6.</strong> Contributing</a></li></ol>
+            <ol class="chapter"><li class="chapter-item expanded "><a href="introduction/introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="introduction/installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="introduction/dependencies.html"><strong aria-hidden="true">1.2.</strong> Dependencies</a></li><li class="chapter-item expanded "><a href="introduction/types.html"><strong aria-hidden="true">1.3.</strong> Supported types</a></li></ol></li><li class="chapter-item expanded "><a href="using_cornucopia/using_cornucopia.html"><strong aria-hidden="true">2.</strong> Using Cornucopia</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="using_cornucopia/cli.html"><strong aria-hidden="true">2.1.</strong> CLI</a></li><li class="chapter-item expanded "><a href="using_cornucopia/api.html"><strong aria-hidden="true">2.2.</strong> API</a></li><li class="chapter-item expanded "><a href="using_cornucopia/error_reporting.html"><strong aria-hidden="true">2.3.</strong> Error reporting</a></li></ol></li><li class="chapter-item expanded "><a href="writing_queries/writing_queries.html"><strong aria-hidden="true">3.</strong> Writing queries</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="writing_queries/query_annotations.html"><strong aria-hidden="true">3.1.</strong> Query annotations</a></li><li class="chapter-item expanded "><a href="writing_queries/type_annotations.html"><strong aria-hidden="true">3.2.</strong> Type annotations</a></li></ol></li><li class="chapter-item expanded "><a href="using_queries/using_queries.html"><strong aria-hidden="true">4.</strong> Using your generated queries</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="using_queries/ergonomic_parameters.html"><strong aria-hidden="true">4.1.</strong> Ergonomic parameters</a></li><li class="chapter-item expanded "><a href="using_queries/db_connections.html"><strong aria-hidden="true">4.2.</strong> Database connections</a></li></ol></li><li class="chapter-item expanded "><a href="examples.html"><strong aria-hidden="true">5.</strong> Examples</a></li><li class="chapter-item expanded "><a href="contributing.html"><strong aria-hidden="true">6.</strong> Contributing</a></li></ol>
         </div>
         <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
     </nav>
@@ -211,7 +211,7 @@
 </div>
 <div>
 <p>If you just want to get started without having to read all of this, you can take a look at our <a href="introduction//examples/examples.html">examples</a>. </p>
-<p><em>Still, this book is pretty short and to the point though, so you should probably at least take a glance.</em></p>
+<p><em>This book is pretty short and to the point though, so you should probably at least take a glance.</em></p>
 </div>
 </div><div style="break-before: page; page-break-before: always;"></div><h1 id="installation"><a class="header" href="#installation">Installation</a></h1>
 <h2 id="cornucopia"><a class="header" href="#cornucopia">Cornucopia</a></h2>
@@ -279,12 +279,15 @@
 <h2 id="optional-extra-types"><a class="header" href="#optional-extra-types">(Optional) Extra types</a></h2>
 <p>You can enable additional support for additional PostgreSQL types by adding the corresponding crates and driver features. </p>
 <div class="table-wrapper"><table><thead><tr><th>Crate</th><th>PostgreSQL</th><th>Rust</th><th>driver feature</th></tr></thead><tbody>
-<tr><td><code>serde_json</code></td><td><code>Json</code> <code>JsonB</code></td><td><code>Value</code></td><td><code>with-serde_json-1</code></td></tr>
+<tr><td><code>serde_json</code></td><td><code>Json</code> <code>JsonB</code></td><td><code>Value</code></td><td><code>with-serde_json-1</code> <em>(*)</em></td></tr>
 <tr><td><code>time</code></td><td><code>Time</code> <code>Date</code> <code>Timestamp</code> <code>TimestampTZ</code></td><td><code>Date</code> <code>Time</code> <code>PrimitiveDateTime</code> <code>OffsetDateTime</code></td><td><code>with-time-0_3</code></td></tr>
 <tr><td><code>uuid</code></td><td><code>Uuid</code></td><td><code>Uuid</code></td><td><code>with-uuid-1</code></td></tr>
 <tr><td><code>eui48</code></td><td><code>MacAddr</code></td><td><code>MacAddress</code></td><td><code>with-eui48-1</code></td></tr>
+<tr><td><code>rust_decimal</code></td><td><code>Numeric</code></td><td><code>Decimal</code></td><td><em>(**)</em></td></tr>
 </tbody></table>
 </div>
+<p><em>(*) In addition to the driver feature, the <code>with-serde_json-1</code> feature must also be enabled on the Cornucopia client</em>.</p>
+<p><em>(**) Doesn't require any driver feature, but it does require enabling <code>rust_decimal</code>'s <code>db-postgres</code> feature.</em></p>
 <h2 id="optional-row-serialization"><a class="header" href="#optional-row-serialization">(Optional) Row serialization</a></h2>
 <ul>
 <li><code>serde</code> <strong>with the <code>derive</code> feature enabled</strong>.</li>
@@ -297,7 +300,7 @@
 postgres_types = { version = &quot;*&quot;, features = [&quot;derive&quot;] }
 
 # Async
-cornucopia_async = &quot;*&quot;
+cornucopia_async = { version = &quot;*&quot;, features = [&quot;with-serde_json-1&quot;] }
 tokio = { version = &quot;*&quot;, features = [&quot;full&quot;] }
 tokio-postgres = { version = &quot;*&quot;, features = [
     &quot;with-serde_json-1&quot;,
@@ -317,6 +320,7 @@ serde_json = &quot;*&quot;
 time = &quot;*&quot;
 uuid = &quot;*&quot;
 eui48 = &quot;*&quot;
+rust_decimal = { version = &quot;*&quot;, features = [&quot;db-postgres&quot;] }
 </code></pre>
 <p>If you're generating sync code, your dependencies will look a bit different but this should give you a rough idea.</p>
 <div id="admonition-note" class="admonition note">
@@ -349,11 +353,12 @@ eui48 = &quot;*&quot;
 <tr><td><code>uuid</code><em>(*)</em></td><td><code>uuid::Uuid</code></td></tr>
 <tr><td><code>inet</code><em>(*)</em></td><td><code>std::net::IpAddr</code></td></tr>
 <tr><td><code>macaddr</code><em>(*)</em></td><td><code>eui48::MacAddress</code></td></tr>
+<tr><td><code>numeric</code> <em>(*)</em></td><td><code>rust_decimal::Decimal</code></td></tr>
 </tbody></table>
 </div>
-<p><em>(*) <a href="introduction//introduction/dependencies.html#optional-extra-types">Optional extra types</a>.</em></p>
+<p><em>(*) <a href="introduction/./dependencies#optional-extra-types">Optional extra types</a>.</em></p>
 <h2 id="custom-types"><a class="header" href="#custom-types">Custom types</a></h2>
-<p>Custom types like <code>enum</code>s, <code>composite</code>s and <code>domain</code>s will be generated automatically by inspecting your database. The only requirement for your custom types is that they be based on other supported types (base or custom).</p>
+<p>Custom types like <code>enum</code>s, <code>composite</code>s and <code>domain</code>s will be generated automatically by inspecting your database. The only requirement for your custom types is that they should be based on other supported types (base or custom).</p>
 <p>Cornucopia is aware of your types' namespaces (what PostgreSQL calls schemas), so it will correctly handle custom types like <code>my_schema.my_custom_type</code>.</p>
 <div id="admonition-note" class="admonition note">
 <div class="admonition-title">
@@ -393,7 +398,7 @@ eui48 = &quot;*&quot;
 <h3 id="schema-automatic-container-management"><a class="header" href="#schema-automatic-container-management"><code>schema</code>: Automatic container management</a></h3>
 <p>The <code>cornucopia generate</code> command creates a new container, loads your schema(s), generates your queries and cleanups the container. You will need to provide the path to one or more schema files to build your queries against.</p>
 <h3 id="live-manual-database-management"><a class="header" href="#live-manual-database-management"><code>live</code>: Manual database management</a></h3>
-<p>If you want to manage the database yourself, use the <code>cornucopia generate live</code> command to connect to an arbitrary live database. You will need to provide the connection url.</p>
+<p>If you want to manage the database yourself, use the <code>cornucopia generate live</code> command to connect to an arbitrary live database. You will need to provide the connection URL.</p>
 <h2 id="useful-flags"><a class="header" href="#useful-flags">Useful flags</a></h2>
 <h3 id="sync-1"><a class="header" href="#sync-1"><code>sync</code></a></h3>
 <p>By default, Cornucopia will generate asynchronous code, but it can also generate synchronous code using the <code>--sync</code> flag.</p>
@@ -404,11 +409,26 @@ eui48 = &quot;*&quot;
 <div style="break-before: page; page-break-before: always;"></div><h1 id="api-1"><a class="header" href="#api-1">API</a></h1>
 <p>Cornucopia's API offers functionalities similar to the CLI. The main benefit of the API over the CLI is to facilitate programmatic use cases and expose useful abstractions (e.g. an error type).</p>
 <p>For more information, you can read the library API <a href="https://docs.rs/crate/cornucopia/latest">docs</a>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="error-reporting"><a class="header" href="#error-reporting">Error reporting</a></h1>
+<p>One of Cornucopia's core goals is to provide best-in-class error reporting. For example, let's say you tried to declare a nullable field, but the query doesn't have a field with this name. You'll receive an error message such as this, <em>before runtime</em>:</p>
+<pre><code>× unknown field
+   ╭─[queries/test.sql:1:1]
+ 1 │ --! author: (age?)
+   ·              ─┬─
+   ·               ╰── no field with this name was found
+ 2 │ SELECT * FROM author;
+   ╰────
+  help: use one of those names: id, name
+</code></pre>
+<p>This helps you catch any malformed query annotation, and will offer helpful hints to get you there. If your development environment supports links, you should be able to click the path (here <code>queries/test.sql:1:1</code>) to bring you directly to the error site in your SQL code.</p>
+<p>Cornucopia's error reporting is quite extensive and covers a lot more than the simple case above. You can take a look at our internal <code>integration</code> crate to see our whole error reporting suite.</p>
+<h2 id="error-type"><a class="header" href="#error-type">Error type</a></h2>
+<p>Cornucopia's library API provides a fully fleshed-out error type that you can use if you need more complex error-handling behavior.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="writing-queries"><a class="header" href="#writing-queries">Writing queries</a></h1>
 <p>Your queries consist of PostgreSQL statements using named parameters and decorated by special comment annotations.</p>
 <p>Each query file can contain as many queries as you want and will be translated into a submodule inside your generated code file.</p>
 <h2 id="named-parameters"><a class="header" href="#named-parameters">Named parameters</a></h2>
-<p>In order to make it easier to write robust queries, Cornucopia uses named bind parameters for queries. Named bind parameters start with a colon and are followed by an identifier like <code>:this</code>. This is only for user convenience though, behind the scenes the query is rewritten using pure PostgreSQL syntax.</p>
+<p>To make it easier to write robust queries, Cornucopia uses named bind parameters for queries. Named bind parameters start with a colon and are followed by an identifier like <code>:this</code>. This is only for user convenience though, behind the scenes the query is rewritten using pure PostgreSQL syntax.</p>
 <p>It may seem like a gratuitous deviation from PostgreSQL, but the improved expressivity is worth it in our opinion.</p>
 <div id="admonition-warning" class="admonition warning">
 <div class="admonition-title">
@@ -419,6 +439,9 @@ eui48 = &quot;*&quot;
 <p>Queries <strong>MUST</strong> use named parameters (like <code>:name</code>) instead of indexed ones like <code>$3</code>.</p>
 </div>
 </div>
+<h2 id="rust-keywords"><a class="header" href="#rust-keywords">Rust keywords</a></h2>
+<p>When generating your code, Cornucopia will automatically escape identifiers that collide with non-strict Rust keywords. For example, if your SQL query has a column named <code>async</code>, it will be generated as <code>r#async</code>. This can be useful sometimes, but you should avoid such collisions if possible because it makes the generated code more cumbersome.</p>
+<p>Strict keywords will result in a code generation error.</p>
 <h2 id="annotations"><a class="header" href="#annotations">Annotations</a></h2>
 <p>Each SQL query that is to be used with Cornucopia must be annotated using simple SQL comments. These special comments are parsed by Cornucopia and allow you to customize the generated code.</p>
 <p>In addition to query annotations, you can also use type annotations to reuse returned columns and parameters between multiple queries.</p>
@@ -467,17 +490,7 @@ FROM example
 </code></pre>
 <p>which means that the <code>compos</code> column and its field <code>some_field</code> are both nullable and that the <code>arr</code> column and its elements are also nullable.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="type-annotations"><a class="header" href="#type-annotations">Type annotations</a></h1>
-<p>Type annotations allow you to create structs for your parameters and rows. This can have many benefits (implementing custom logic on these types, named fields, etc.). Furthermore, this allows Cornucopia to share these types between multiple queries.</p>
-<div id="admonition-note" class="admonition note">
-<div class="admonition-title">
-<p>Note</p>
-<p><a class="admonition-anchor-link" href="writing_queries/type_annotations.html#admonition-note"></a></p>
-</div>
-<div>
-<p>Cornucopia will <strong>automatically</strong> generate a struct <strong>only for parameters which have two or more columns</strong>. The name of the struct is based on the name of the query. For other cases, you will need to write the type annotation yourself.</p>
-<p>Even if the parameter struct is automatically generated, type annotations can still be useful when you want to customize the name of the struct, declutter the query of nullity declarations or share the params struct between multiple queries.</p>
-</div>
-</div>
+<p>Type annotations allow you to customize the structs that Cornucopia generates for your rows (and parameters, see <a href="writing_queries/type_annotations.html#parameter-structs">the section below</a>). Furthermore, this allows you to share these types between multiple queries.</p>
 <p>To create type annotations, declare them using the <code>--:</code> syntax. Type annotations only need to declare the nullable columns. Here's how it looks:</p>
 <pre><code class="language-sql">--: Author(age?)
 
@@ -490,10 +503,10 @@ FROM Authors
 WHERE Authors.nationality = :country;
 </code></pre>
 <p>This will define a struct named <code>Author</code> containing typed fields for the <code>name</code> and <code>age</code> columns (with <code>age</code> being nullable). The same struct will be used for the <code>authors</code> and <code>authors_from_country</code> queries.</p>
-<div id="admonition-note-1" class="admonition note">
+<div id="admonition-note" class="admonition note">
 <div class="admonition-title">
 <p>Note</p>
-<p><a class="admonition-anchor-link" href="writing_queries/type_annotations.html#admonition-note-1"></a></p>
+<p><a class="admonition-anchor-link" href="writing_queries/type_annotations.html#admonition-note"></a></p>
 </div>
 <div>
 <p>Type annotations are declared with this token: <code>--:</code></p>
@@ -507,6 +520,9 @@ FROM Authors
 WHERE Authors.nationality = :country;
 </code></pre>
 <p>Notice how inline types <strong>must</strong> have a set of parenthesis describing their nullable columns. This syntax is often more compact for simple cases. It doesn't have any other special meaning otherwise.</p>
+<h2 id="parameter-structs"><a class="header" href="#parameter-structs">Parameter structs</a></h2>
+<p>Cornucopia will <strong>automatically</strong> generate a parameter struct <strong>if it has more than one column</strong>. The name of the parameter struct is based on the name of the query. You can still manually generate a parameter struct using a type annotation or an inline type.</p>
+<p>In any case, note that you don't <em>need</em> a parameter struct, you can always work directly with the query function (see the section <a href="writing_queries/./../using_queries/using_queries.html#building-the-query-object">query usage</a>).</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="using-your-generated-queries"><a class="header" href="#using-your-generated-queries">Using your generated queries</a></h1>
 <p>Once you have written your queries and generated your Rust code with Cornucopia, it's time to use them. Hurray 🎉!</p>
 <p>Let's say you have generated your Rust module into <code>src/cornucopia.rs</code>, then this is as simple as importing the items you need from it, like so:</p>
@@ -601,6 +617,61 @@ authors().bind(&amp;client).iter().await?.collect::&lt;Vec&lt;_&gt;&gt;(); // Ac
 <div>
 <p>If your queries are sync, you don't need to <code>.await</code> them.</p>
 </div>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="ergonomic-parameters"><a class="header" href="#ergonomic-parameters">Ergonomic parameters</a></h1>
+<p>To make working with bind parameters, Cornucopia uses umbrella traits that allow you to pass different concrete types to the same query.</p>
+<p>For example:</p>
+<pre><code class="language-rust">authors_by_first_name.bind(&amp;client, &amp;&quot;John&quot;).all(); // This works
+authors_by_first_name.bind(&amp;client, &amp;String::from(&quot;John&quot;)).all(); // This also works
+</code></pre>
+<p>Here's the list of umbrella traits and the concrete types they abstract over.</p>
+<div id="admonition-note" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="using_queries/ergonomic_parameters.html#admonition-note"></a></p>
+</div>
+<div>
+<p>The pseudo trait bounds given here are very informal, but they should be easy enough to understand.</p>
+<p>If you need to see exactly what the trait bounds are, these traits are contained in the <code>cornucopia_client_core</code> crate.</p>
+</div>
+</div>
+<h2 id="stringsql"><a class="header" href="#stringsql"><code>StringSql</code></a></h2>
+<ul>
+<li><code>&amp;T</code> where <code>T: StringSql</code></li>
+<li><code>String</code></li>
+<li><code>&amp;str</code></li>
+<li><code>Cow&lt;'_, str&gt;</code></li>
+<li><code>Box&lt;str&gt;</code></li>
+</ul>
+<h2 id="bytessql"><a class="header" href="#bytessql"><code>BytesSql</code></a></h2>
+<ul>
+<li><code>&amp;T</code> where <code>T: BytesSql</code></li>
+<li><code>Vec&lt;u8&gt;</code></li>
+<li><code>&amp;[u8]</code></li>
+</ul>
+<h2 id="jsonsql"><a class="header" href="#jsonsql"><code>JsonSql</code></a></h2>
+<p><em>(This trait is only available if the client crate has the <code>with-serde_json-1</code> enabled)</em></p>
+<ul>
+<li><code>&amp;T</code> where <code>T: JsonSql</code></li>
+<li><code>serde_json::Value</code></li>
+<li><code>postgres_types::Json</code></li>
+</ul>
+<h2 id="arraysql"><a class="header" href="#arraysql"><code>ArraySql</code></a></h2>
+<ul>
+<li><code>&amp;T</code> where <code>T: ArraySql</code></li>
+<li><code>Vec&lt;T&gt;</code></li>
+<li><code>&amp;[T]</code></li>
+<li><code>IterSql</code></li>
+</ul>
+<h3 id="notes-on-itersql"><a class="header" href="#notes-on-itersql">Notes on <code>IterSql</code></a></h3>
+<p>This is a wrapper type available in the client crates. It allows you to treat an iterator as an <code>ArraySql</code> for the purpose of passing parameters.</p>
+<div id="admonition-note-1" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="using_queries/ergonomic_parameters.html#admonition-note-1"></a></p>
+</div>
+<div>
+<p>Ergonomic parameters are not supported in composite types yet. This means that composite types fields will only accept concrete types. It should be possible to lift this restriction in the future.</p>
+</div>
 </div><div style="break-before: page; page-break-before: always;"></div><h1 id="database-connections"><a class="header" href="#database-connections">Database connections</a></h1>
 <p>Depending on your choice of driver (sync or async) and pooling, your generated queries will accept different types of connections.</p>
 <p>The following list details supported connections for each configuration.</p>
@@ -648,22 +719,6 @@ authors().bind(&amp;client).iter().await?.collect::&lt;Vec&lt;_&gt;&gt;(); // Ac
 
     </div>
 
-    <!-- Livereload script (if served using the cli tool) -->
-    <script type="text/javascript">
-        const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
-        const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
-        const socket = new WebSocket(wsAddress);
-        socket.onmessage = function (event) {
-            if (event.data === "reload") {
-                socket.close();
-                location.reload();
-            }
-        };
-
-        window.onbeforeunload = function () {
-            socket.close();
-        }
-    </script>
 
 
 

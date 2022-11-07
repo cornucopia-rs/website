@@ -1,11 +1,5 @@
 # Type annotations
-Type annotations allow you to create structs for your parameters and rows. This can have many benefits (implementing custom logic on these types, named fields, etc.). Furthermore, this allows Cornucopia to share these types between multiple queries.
-
-```admonish note
-Cornucopia will **automatically** generate a struct **only for parameters which have two or more columns**. The name of the struct is based on the name of the query. For other cases, you will need to write the type annotation yourself.
-
-Even if the parameter struct is automatically generated, type annotations can still be useful when you want to customize the name of the struct, declutter the query of nullity declarations or share the params struct between multiple queries.
-```
+Type annotations allow you to customize the structs that Cornucopia generates for your rows (and parameters, see [the section below](#parameter-structs)). Furthermore, this allows you to share these types between multiple queries.
 
 To create type annotations, declare them using the `--:` syntax. Type annotations only need to declare the nullable columns. Here's how it looks:
 ```sql
@@ -35,3 +29,8 @@ FROM Authors
 WHERE Authors.nationality = :country;
 ```
 Notice how inline types **must** have a set of parenthesis describing their nullable columns. This syntax is often more compact for simple cases. It doesn't have any other special meaning otherwise.
+
+## Parameter structs
+Cornucopia will **automatically** generate a parameter struct **if it has more than one column**. The name of the parameter struct is based on the name of the query. You can still manually generate a parameter struct using a type annotation or an inline type.
+
+In any case, note that you don't *need* a parameter struct, you can always work directly with the query function (see the section [query usage](./../using_queries/using_queries.md#building-the-query-object)).
