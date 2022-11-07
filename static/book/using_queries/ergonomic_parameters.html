@@ -203,7 +203,6 @@ authors_by_first_name.bind(&amp;client, &amp;String::from(&quot;John&quot;)).all
 </div>
 <h2 id="stringsql"><a class="header" href="#stringsql"><code>StringSql</code></a></h2>
 <ul>
-<li><code>&amp;T</code> where <code>T: StringSql</code></li>
 <li><code>String</code></li>
 <li><code>&amp;str</code></li>
 <li><code>Cow&lt;'_, str&gt;</code></li>
@@ -211,20 +210,17 @@ authors_by_first_name.bind(&amp;client, &amp;String::from(&quot;John&quot;)).all
 </ul>
 <h2 id="bytessql"><a class="header" href="#bytessql"><code>BytesSql</code></a></h2>
 <ul>
-<li><code>&amp;T</code> where <code>T: BytesSql</code></li>
 <li><code>Vec&lt;u8&gt;</code></li>
 <li><code>&amp;[u8]</code></li>
 </ul>
 <h2 id="jsonsql"><a class="header" href="#jsonsql"><code>JsonSql</code></a></h2>
 <p><em>(This trait is only available if the client crate has the <code>with-serde_json-1</code> enabled)</em></p>
 <ul>
-<li><code>&amp;T</code> where <code>T: JsonSql</code></li>
 <li><code>serde_json::Value</code></li>
 <li><code>postgres_types::Json</code></li>
 </ul>
 <h2 id="arraysql"><a class="header" href="#arraysql"><code>ArraySql</code></a></h2>
 <ul>
-<li><code>&amp;T</code> where <code>T: ArraySql</code></li>
 <li><code>Vec&lt;T&gt;</code></li>
 <li><code>&amp;[T]</code></li>
 <li><code>IterSql</code></li>

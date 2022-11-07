@@ -16,25 +16,21 @@ If you need to see exactly what the trait bounds are, these traits are contained
 ```
 
 ## `StringSql`
-* `&T` where `T: StringSql`
 * `String`
 * `&str`
 * `Cow<'_, str>`
 * `Box<str>`
 
 ## `BytesSql`
-* `&T` where `T: BytesSql`
 * `Vec<u8>`
 * `&[u8]`
 
 ## `JsonSql`
 *(This trait is only available if the client crate has the `with-serde_json-1` enabled)*
-* `&T` where `T: JsonSql`
 * `serde_json::Value`
 * `postgres_types::Json`
 
 ## `ArraySql`
-* `&T` where `T: ArraySql`
 * `Vec<T>`
 * `&[T]`
 * `IterSql`
