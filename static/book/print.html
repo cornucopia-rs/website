@@ -247,7 +247,7 @@
 </ul>
 <h2 id="required"><a class="header" href="#required">Required</a></h2>
 <ul>
-<li>Postgres type utils: <code>postgres_types</code> <strong>with the <code>derive</code> feature enabled</strong>.</li>
+<li>Postgres type utils: <code>postgres-types</code> <strong>with the <code>derive</code> feature enabled</strong>.</li>
 </ul>
 <h2 id="choose-one-sync-or-async"><a class="header" href="#choose-one-sync-or-async">Choose one (sync or async)</a></h2>
 <h3 id="sync"><a class="header" href="#sync">Sync</a></h3>
@@ -297,7 +297,7 @@
 <pre><code class="language-toml"># Cargo.toml
 [dependencies]
 # Required
-postgres_types = { version = &quot;*&quot;, features = [&quot;derive&quot;] }
+postgres-types = { version = &quot;*&quot;, features = [&quot;derive&quot;] }
 
 # Async
 cornucopia_async = { version = &quot;*&quot;, features = [&quot;with-serde_json-1&quot;] }
@@ -331,7 +331,8 @@ rust_decimal = { version = &quot;*&quot;, features = [&quot;db-postgres&quot;] }
 <div>
 <p>You should use numbered instead of wildcard <code>*</code> dependency versions, this is only for demonstration purposes. You can refer to the crate's <a href="introduction//introduction/examples">examples</a> if you're not sure which versions to use.</p>
 </div>
-</div><div style="break-before: page; page-break-before: always;"></div><h1 id="supported-types"><a class="header" href="#supported-types">Supported types</a></h1>
+</div>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="supported-types"><a class="header" href="#supported-types">Supported types</a></h1>
 <h2 id="base-types"><a class="header" href="#base-types">Base types</a></h2>
 <div class="table-wrapper"><table><thead><tr><th>PostgrsQL type</th><th>Rust type</th></tr></thead><tbody>
 <tr><td><code>bool</code>, <code>boolean</code></td><td><code>bool</code></td></tr>
@@ -528,12 +529,10 @@ WHERE Authors.nationality = :country;
 <p>Let's say you have generated your Rust module into <code>src/cornucopia.rs</code>, then this is as simple as importing the items you need from it, like so:</p>
 <pre><code class="language-rust">mod cornucopia;
 
-use cornucopia::authors;
-</code></pre>
+use cornucopia::authors;</code></pre>
 <h1 id="building-the-query-object"><a class="header" href="#building-the-query-object">Building the query object</a></h1>
 <p>Building a query object starts with either the query function:</p>
-<pre><code class="language-rust">authors().bind(&amp;client, Some(&quot;Greece&quot;));
-</code></pre>
+<pre><code class="language-rust">authors().bind(&amp;client, Some(&quot;Greece&quot;));</code></pre>
 <p>or the generated parameter struct:</p>
 <pre><code class="language-rust">use cornucopia_async::Params;
 
@@ -542,8 +541,7 @@ authors().params(
     AuthorsParams {
         country: Some(&quot;Greece&quot;)
     }
-);
-</code></pre>
+);</code></pre>
 <p>The query function is useful when you have a few obvious parameters, while the parameter struct is more explicit.</p>
 <p>Note that in order to use the <code>params</code> method, you need to import the <code>Params</code> trait from your (sync or async) cornucopia client.</p>
 <div id="admonition-note" class="admonition note">
@@ -592,8 +590,7 @@ authors()
             country,
             age: author.age,
         }
-    });
-</code></pre>
+    });</code></pre>
 <p>The result of a map is another query object.</p>
 <h1 id="getting-rows-out-of-your-queries"><a class="header" href="#getting-rows-out-of-your-queries">Getting rows out of your queries</a></h1>
 <p>Once the query object has been built, use one of the following methods to select the expected number of rows:</p>
@@ -607,8 +604,7 @@ authors()
 <pre><code class="language-rust">author_by_id().bind(&amp;client, &amp;0).opt().await?;
 author_by_id().bind(&amp;client, &amp;0).one().await?; // Error if this author id doesn't exist
 authors().bind(&amp;client).all().await?;
-authors().bind(&amp;client).iter().await?.collect::&lt;Vec&lt;_&gt;&gt;(); // Acts the same as the previous line
-</code></pre>
+authors().bind(&amp;client).iter().await?.collect::&lt;Vec&lt;_&gt;&gt;(); // Acts the same as the previous line</code></pre>
 <div id="admonition-note-1" class="admonition note">
 <div class="admonition-title">
 <p>Note</p>
@@ -621,8 +617,7 @@ authors().bind(&amp;client).iter().await?.collect::&lt;Vec&lt;_&gt;&gt;(); // Ac
 <p>To make working with bind parameters, Cornucopia uses umbrella traits that allow you to pass different concrete types to the same query.</p>
 <p>For example:</p>
 <pre><code class="language-rust">authors_by_first_name.bind(&amp;client, &amp;&quot;John&quot;).all(); // This works
-authors_by_first_name.bind(&amp;client, &amp;String::from(&quot;John&quot;)).all(); // This also works
-</code></pre>
+authors_by_first_name.bind(&amp;client, &amp;String::from(&quot;John&quot;)).all(); // This also works</code></pre>
 <p>Here's the list of umbrella traits and the concrete types they abstract over.</p>
 <div id="admonition-note" class="admonition note">
 <div class="admonition-title">

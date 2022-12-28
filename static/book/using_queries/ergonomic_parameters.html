@@ -188,8 +188,7 @@
 <p>To make working with bind parameters, Cornucopia uses umbrella traits that allow you to pass different concrete types to the same query.</p>
 <p>For example:</p>
 <pre><code class="language-rust">authors_by_first_name.bind(&amp;client, &amp;&quot;John&quot;).all(); // This works
-authors_by_first_name.bind(&amp;client, &amp;String::from(&quot;John&quot;)).all(); // This also works
-</code></pre>
+authors_by_first_name.bind(&amp;client, &amp;String::from(&quot;John&quot;)).all(); // This also works</code></pre>
 <p>Here's the list of umbrella traits and the concrete types they abstract over.</p>
 <div id="admonition-note" class="admonition note">
 <div class="admonition-title">
