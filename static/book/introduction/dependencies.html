@@ -194,7 +194,7 @@
 </ul>
 <h2 id="required"><a class="header" href="#required">Required</a></h2>
 <ul>
-<li>Postgres type utils: <code>postgres_types</code> <strong>with the <code>derive</code> feature enabled</strong>.</li>
+<li>Postgres type utils: <code>postgres-types</code> <strong>with the <code>derive</code> feature enabled</strong>.</li>
 </ul>
 <h2 id="choose-one-sync-or-async"><a class="header" href="#choose-one-sync-or-async">Choose one (sync or async)</a></h2>
 <h3 id="sync"><a class="header" href="#sync">Sync</a></h3>
@@ -244,7 +244,7 @@
 <pre><code class="language-toml"># Cargo.toml
 [dependencies]
 # Required
-postgres_types = { version = &quot;*&quot;, features = [&quot;derive&quot;] }
+postgres-types = { version = &quot;*&quot;, features = [&quot;derive&quot;] }
 
 # Async
 cornucopia_async = { version = &quot;*&quot;, features = [&quot;with-serde_json-1&quot;] }
@@ -279,6 +279,7 @@ rust_decimal = { version = &quot;*&quot;, features = [&quot;db-postgres&quot;] }
 <p>You should use numbered instead of wildcard <code>*</code> dependency versions, this is only for demonstration purposes. You can refer to the crate's <a href="/introduction/examples">examples</a> if you're not sure which versions to use.</p>
 </div>
 </div>
+
                 </main>
 
                 <nav class="nav-wrapper" aria-label="Page navigation">

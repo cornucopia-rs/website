@@ -189,12 +189,10 @@
 <p>Let's say you have generated your Rust module into <code>src/cornucopia.rs</code>, then this is as simple as importing the items you need from it, like so:</p>
 <pre><code class="language-rust">mod cornucopia;
 
-use cornucopia::authors;
-</code></pre>
+use cornucopia::authors;</code></pre>
 <h1 id="building-the-query-object"><a class="header" href="#building-the-query-object">Building the query object</a></h1>
 <p>Building a query object starts with either the query function:</p>
-<pre><code class="language-rust">authors().bind(&amp;client, Some(&quot;Greece&quot;));
-</code></pre>
+<pre><code class="language-rust">authors().bind(&amp;client, Some(&quot;Greece&quot;));</code></pre>
 <p>or the generated parameter struct:</p>
 <pre><code class="language-rust">use cornucopia_async::Params;
 
@@ -203,8 +201,7 @@ authors().params(
     AuthorsParams {
         country: Some(&quot;Greece&quot;)
     }
-);
-</code></pre>
+);</code></pre>
 <p>The query function is useful when you have a few obvious parameters, while the parameter struct is more explicit.</p>
 <p>Note that in order to use the <code>params</code> method, you need to import the <code>Params</code> trait from your (sync or async) cornucopia client.</p>
 <div id="admonition-note" class="admonition note">
@@ -253,8 +250,7 @@ authors()
             country,
             age: author.age,
         }
-    });
-</code></pre>
+    });</code></pre>
 <p>The result of a map is another query object.</p>
 <h1 id="getting-rows-out-of-your-queries"><a class="header" href="#getting-rows-out-of-your-queries">Getting rows out of your queries</a></h1>
 <p>Once the query object has been built, use one of the following methods to select the expected number of rows:</p>
@@ -268,8 +264,7 @@ authors()
 <pre><code class="language-rust">author_by_id().bind(&amp;client, &amp;0).opt().await?;
 author_by_id().bind(&amp;client, &amp;0).one().await?; // Error if this author id doesn't exist
 authors().bind(&amp;client).all().await?;
-authors().bind(&amp;client).iter().await?.collect::&lt;Vec&lt;_&gt;&gt;(); // Acts the same as the previous line
-</code></pre>
+authors().bind(&amp;client).iter().await?.collect::&lt;Vec&lt;_&gt;&gt;(); // Acts the same as the previous line</code></pre>
 <div id="admonition-note-1" class="admonition note">
 <div class="admonition-title">
 <p>Note</p>
