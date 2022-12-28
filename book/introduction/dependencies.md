@@ -8,7 +8,7 @@ This section describes the role of each dependency. Dependencies come in three b
 - Optional dependencies that extend Cornucopia's capabilities.
 
 ## Required
-* Postgres type utils: `postgres_types` **with the `derive` feature enabled**.
+* Postgres type utils: `postgres-types` **with the `derive` feature enabled**.
 
 ## Choose one (sync or async)
 ### Sync
@@ -53,7 +53,7 @@ The code block below shows what your dependencies might look like with every fea
 # Cargo.toml
 [dependencies]
 # Required
-postgres_types = { version = "*", features = ["derive"] }
+postgres-types = { version = "*", features = ["derive"] }
 
 # Async
 cornucopia_async = { version = "*", features = ["with-serde_json-1"] }
