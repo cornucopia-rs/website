@@ -9,10 +9,10 @@ This is only an overview of the CLI. You should read the help message for more c
 The code generation can be made either against a database that you manage or by letting Cornucopia manage an ephemeral database container for you.
 
 ### `schema`: Automatic container management
-The `cornucopia generate` command creates a new container, loads your schema(s), generates your queries and cleanups the container. You will need to provide the path to one or more schema files to build your queries against.
+The `cornucopia schema` command creates a new container, loads your schema(s), generates your queries and cleanups the container. You will need to provide the path to one or more schema files to build your queries against.
 
 ### `live`: Manual database management
-If you want to manage the database yourself, use the `cornucopia generate live` command to connect to an arbitrary live database. You will need to provide the connection URL.
+If you want to manage the database yourself, use the `cornucopia live` command to connect to an arbitrary live database. You will need to provide the connection URL.
 
 ## Useful flags
 ### `sync`
