@@ -397,9 +397,9 @@ rust_decimal = { version = &quot;*&quot;, features = [&quot;db-postgres&quot;] }
 <h2 id="generating-code"><a class="header" href="#generating-code">Generating code</a></h2>
 <p>The code generation can be made either against a database that you manage or by letting Cornucopia manage an ephemeral database container for you.</p>
 <h3 id="schema-automatic-container-management"><a class="header" href="#schema-automatic-container-management"><code>schema</code>: Automatic container management</a></h3>
-<p>The <code>cornucopia generate</code> command creates a new container, loads your schema(s), generates your queries and cleanups the container. You will need to provide the path to one or more schema files to build your queries against.</p>
+<p>The <code>cornucopia schema</code> command creates a new container, loads your schema(s), generates your queries and cleanups the container. You will need to provide the path to one or more schema files to build your queries against.</p>
 <h3 id="live-manual-database-management"><a class="header" href="#live-manual-database-management"><code>live</code>: Manual database management</a></h3>
-<p>If you want to manage the database yourself, use the <code>cornucopia generate live</code> command to connect to an arbitrary live database. You will need to provide the connection URL.</p>
+<p>If you want to manage the database yourself, use the <code>cornucopia live</code> command to connect to an arbitrary live database. You will need to provide the connection URL.</p>
 <h2 id="useful-flags"><a class="header" href="#useful-flags">Useful flags</a></h2>
 <h3 id="sync-1"><a class="header" href="#sync-1"><code>sync</code></a></h3>
 <p>By default, Cornucopia will generate asynchronous code, but it can also generate synchronous code using the <code>--sync</code> flag.</p>
