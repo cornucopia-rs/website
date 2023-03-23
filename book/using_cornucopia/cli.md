@@ -18,8 +18,8 @@ If you want to manage the database yourself, use the `cornucopia live` command t
 ### `sync`
 By default, Cornucopia will generate asynchronous code, but it can also generate synchronous code using the `--sync` flag.
 
-### `derive_ser`
-If you need to serialize the rows returned by your queries, you can use the `--derive_ser` flag, which will derive `Serialize` on your row types.
+### `serialize`
+If you need to serialize the rows returned by your queries, you can use the `--serialize` flag, which will derive `Serialize` on your row types.
 
 ### `podman`
 You can use `podman` as a container manager by passing the `-p` or `--podman` flag.
