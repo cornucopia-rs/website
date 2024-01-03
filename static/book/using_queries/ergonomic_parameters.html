@@ -34,6 +34,7 @@
 
     <!-- Custom theme stylesheets -->
     <link rel="stylesheet" href="../././mdbook-admonish.css">
+    <link rel="stylesheet" href=".././mdbook-admonish.css">
 
 </head>
 
@@ -190,7 +191,7 @@
 <pre><code class="language-rust">authors_by_first_name.bind(&amp;client, &amp;&quot;John&quot;).all(); // This works
 authors_by_first_name.bind(&amp;client, &amp;String::from(&quot;John&quot;)).all(); // This also works</code></pre>
 <p>Here's the list of umbrella traits and the concrete types they abstract over.</p>
-<div id="admonition-note" class="admonition note">
+<div id="admonition-note" class="admonition admonish-note">
 <div class="admonition-title">
 <p>Note</p>
 <p><a class="admonition-anchor-link" href="#admonition-note"></a></p>
@@ -226,7 +227,7 @@ authors_by_first_name.bind(&amp;client, &amp;String::from(&quot;John&quot;)).all
 </ul>
 <h3 id="notes-on-itersql"><a class="header" href="#notes-on-itersql">Notes on <code>IterSql</code></a></h3>
 <p>This is a wrapper type available in the client crates. It allows you to treat an iterator as an <code>ArraySql</code> for the purpose of passing parameters.</p>
-<div id="admonition-note-1" class="admonition note">
+<div id="admonition-note-1" class="admonition admonish-note">
 <div class="admonition-title">
 <p>Note</p>
 <p><a class="admonition-anchor-link" href="#admonition-note-1"></a></p>

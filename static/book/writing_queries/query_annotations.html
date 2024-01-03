@@ -34,6 +34,7 @@
 
     <!-- Custom theme stylesheets -->
     <link rel="stylesheet" href="../././mdbook-admonish.css">
+    <link rel="stylesheet" href=".././mdbook-admonish.css">
 
 </head>
 
@@ -195,7 +196,7 @@ WHERE Authors.nationality = :country;
 <p>The <code>--!</code> token indicates a Cornucopia query annotation, and <code>select_authors</code> is the name of the query.</p>
 <p>Cornucopia will actually prepare your queries against your schema, automatically finding the parameters, row columns and their respective types. That is why in most simple queries, you don't have to specify the parameters or row columns: only the query name is required.</p>
 <p>That said, you can also go further than this simple syntax in order to customize your queries, as you will learn in the next sections </p>
-<div id="admonition-note" class="admonition note">
+<div id="admonition-note" class="admonition admonish-note">
 <div class="admonition-title">
 <p>Note</p>
 <p><a class="admonition-anchor-link" href="#admonition-note"></a></p>
@@ -212,7 +213,7 @@ FROM Authors
 WHERE Authors.nationality = :country;
 </code></pre>
 <p>The <code>(country?)</code> and <code>(age?)</code> annotations mean that the parameter <code>country</code> and returned column <code>age</code> will be inferred as nullable (<code>Option</code> in Rust). </p>
-<div id="admonition-note-1" class="admonition note">
+<div id="admonition-note-1" class="admonition admonish-note">
 <div class="admonition-title">
 <p>Note</p>
 <p><a class="admonition-anchor-link" href="#admonition-note-1"></a></p>

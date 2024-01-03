@@ -34,6 +34,7 @@
 
     <!-- Custom theme stylesheets -->
     <link rel="stylesheet" href="../././mdbook-admonish.css">
+    <link rel="stylesheet" href=".././mdbook-admonish.css">
 
 </head>
 
@@ -204,7 +205,7 @@ authors().params(
 );</code></pre>
 <p>The query function is useful when you have a few obvious parameters, while the parameter struct is more explicit.</p>
 <p>Note that in order to use the <code>params</code> method, you need to import the <code>Params</code> trait from your (sync or async) cornucopia client.</p>
-<div id="admonition-note" class="admonition note">
+<div id="admonition-note" class="admonition admonish-note">
 <div class="admonition-title">
 <p>Note</p>
 <p><a class="admonition-anchor-link" href="#admonition-note"></a></p>
@@ -265,7 +266,7 @@ authors()
 author_by_id().bind(&amp;client, &amp;0).one().await?; // Error if this author id doesn't exist
 authors().bind(&amp;client).all().await?;
 authors().bind(&amp;client).iter().await?.collect::&lt;Vec&lt;_&gt;&gt;(); // Acts the same as the previous line</code></pre>
-<div id="admonition-note-1" class="admonition note">
+<div id="admonition-note-1" class="admonition admonish-note">
 <div class="admonition-title">
 <p>Note</p>
 <p><a class="admonition-anchor-link" href="#admonition-note-1"></a></p>
