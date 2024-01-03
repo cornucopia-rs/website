@@ -35,6 +35,7 @@
 
     <!-- Custom theme stylesheets -->
     <link rel="stylesheet" href="././mdbook-admonish.css">
+    <link rel="stylesheet" href="./mdbook-admonish.css">
 
 </head>
 
@@ -204,7 +205,7 @@
 <li>Available as a library and a CLI.</li>
 <li>As close to native <code>rust-postgres</code> performance as we can make it.</li>
 </ul>
-<div id="admonition-info" class="admonition info">
+<div id="admonition-info" class="admonition admonish-info">
 <div class="admonition-title">
 <p>Info</p>
 <p><a class="admonition-anchor-link" href="introduction/introduction.html#admonition-info"></a></p>
@@ -229,7 +230,7 @@
 <p>When running in managed mode, Cornucopia spawns a container running a PostgreSQL instance that acts as an ephemeral database. Therefore, you need a working <code>docker</code> or <code>podman</code> command available on your system.</p>
 <h4 id="docker"><a class="header" href="#docker">Docker</a></h4>
 <p>To use Cornucopia with <code>docker</code> on Linux, non-sudo users need to be in the docker group. For a step-by-step guide, please read the official Docker <a href="https://docs.docker.com/get-docker/">installation</a> and <a href="https://docs.docker.com/engine/install/linux-postinstall/">post-installation</a> docs.</p>
-<div id="admonition-note" class="admonition note">
+<div id="admonition-note" class="admonition admonish-note">
 <div class="admonition-title">
 <p>Note</p>
 <p><a class="admonition-anchor-link" href="introduction/installation.html#admonition-note"></a></p>
@@ -256,7 +257,7 @@
 <li>Client: <code>cornucopia_sync</code>.</li>
 <li>Driver: <code>postgres</code>.</li>
 </ul>
-<div id="admonition-info" class="admonition info">
+<div id="admonition-info" class="admonition admonish-info">
 <div class="admonition-title">
 <p>Info</p>
 <p><a class="admonition-anchor-link" href="introduction/dependencies.html#admonition-info"></a></p>
@@ -324,7 +325,7 @@ eui48 = &quot;*&quot;
 rust_decimal = { version = &quot;*&quot;, features = [&quot;db-postgres&quot;] }
 </code></pre>
 <p>If you're generating sync code, your dependencies will look a bit different but this should give you a rough idea.</p>
-<div id="admonition-note" class="admonition note">
+<div id="admonition-note" class="admonition admonish-note">
 <div class="admonition-title">
 <p>Note</p>
 <p><a class="admonition-anchor-link" href="introduction/dependencies.html#admonition-note"></a></p>
@@ -362,7 +363,7 @@ rust_decimal = { version = &quot;*&quot;, features = [&quot;db-postgres&quot;] }
 <h2 id="custom-types"><a class="header" href="#custom-types">Custom types</a></h2>
 <p>Custom types like <code>enum</code>s, <code>composite</code>s and <code>domain</code>s will be generated automatically by inspecting your database. The only requirement for your custom types is that they should be based on other supported types (base or custom).</p>
 <p>Cornucopia is aware of your types' namespaces (what PostgreSQL calls schemas), so it will correctly handle custom types like <code>my_schema.my_custom_type</code>.</p>
-<div id="admonition-note" class="admonition note">
+<div id="admonition-note" class="admonition admonish-note">
 <div class="admonition-title">
 <p>Note</p>
 <p><a class="admonition-anchor-link" href="introduction/types.html#admonition-note"></a></p>
@@ -386,7 +387,7 @@ rust_decimal = { version = &quot;*&quot;, features = [&quot;db-postgres&quot;] }
 <p>With this workflow, you don't need a container manager at all. Set up your database in the state you want, then use Cornucopia's <code>live</code> functionality to build directly against this database using a connection URL. Both the CLI and API support this.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="cli-1"><a class="header" href="#cli-1">CLI</a></h1>
 <p>The CLI exposes two main commands: <code>schema</code> and <code>live</code>.</p>
-<div id="admonition-note" class="admonition note">
+<div id="admonition-note" class="admonition admonish-note">
 <div class="admonition-title">
 <p>Note</p>
 <p><a class="admonition-anchor-link" href="using_cornucopia/cli.html#admonition-note"></a></p>
@@ -432,7 +433,7 @@ rust_decimal = { version = &quot;*&quot;, features = [&quot;db-postgres&quot;] }
 <h2 id="named-parameters"><a class="header" href="#named-parameters">Named parameters</a></h2>
 <p>To make it easier to write robust queries, Cornucopia uses named bind parameters for queries. Named bind parameters start with a colon and are followed by an identifier like <code>:this</code>. This is only for user convenience though, behind the scenes the query is rewritten using pure PostgreSQL syntax.</p>
 <p>It may seem like a gratuitous deviation from PostgreSQL, but the improved expressivity is worth it in our opinion.</p>
-<div id="admonition-warning" class="admonition warning">
+<div id="admonition-warning" class="admonition admonish-warning">
 <div class="admonition-title">
 <p>Warning</p>
 <p><a class="admonition-anchor-link" href="writing_queries/writing_queries.html#admonition-warning"></a></p>
@@ -456,10 +457,10 @@ SELECT id, name, age
 FROM Authors 
 WHERE Authors.nationality = :country;
 </code></pre>
-<p>The <code>--!</code> token indicates a Cornucopia query annotation, and <code>select_authors</code> is the name of the query.</p>
+<p>The <code>--!</code> token indicates a Cornucopia query annotation, and <code>authors_from_country</code> is the name of the query.</p>
 <p>Cornucopia will actually prepare your queries against your schema, automatically finding the parameters, row columns and their respective types. That is why in most simple queries, you don't have to specify the parameters or row columns: only the query name is required.</p>
 <p>That said, you can also go further than this simple syntax in order to customize your queries, as you will learn in the next sections </p>
-<div id="admonition-note" class="admonition note">
+<div id="admonition-note" class="admonition admonish-note">
 <div class="admonition-title">
 <p>Note</p>
 <p><a class="admonition-anchor-link" href="writing_queries/query_annotations.html#admonition-note"></a></p>
@@ -476,7 +477,7 @@ FROM Authors
 WHERE Authors.nationality = :country;
 </code></pre>
 <p>The <code>(country?)</code> and <code>(age?)</code> annotations mean that the parameter <code>country</code> and returned column <code>age</code> will be inferred as nullable (<code>Option</code> in Rust). </p>
-<div id="admonition-note-1" class="admonition note">
+<div id="admonition-note-1" class="admonition admonish-note">
 <div class="admonition-title">
 <p>Note</p>
 <p><a class="admonition-anchor-link" href="writing_queries/query_annotations.html#admonition-note-1"></a></p>
@@ -505,7 +506,7 @@ FROM Authors
 WHERE Authors.nationality = :country;
 </code></pre>
 <p>This will define a struct named <code>Author</code> containing typed fields for the <code>name</code> and <code>age</code> columns (with <code>age</code> being nullable). The same struct will be used for the <code>authors</code> and <code>authors_from_country</code> queries.</p>
-<div id="admonition-note" class="admonition note">
+<div id="admonition-note" class="admonition admonish-note">
 <div class="admonition-title">
 <p>Note</p>
 <p><a class="admonition-anchor-link" href="writing_queries/type_annotations.html#admonition-note"></a></p>
@@ -545,7 +546,7 @@ authors().params(
 );</code></pre>
 <p>The query function is useful when you have a few obvious parameters, while the parameter struct is more explicit.</p>
 <p>Note that in order to use the <code>params</code> method, you need to import the <code>Params</code> trait from your (sync or async) cornucopia client.</p>
-<div id="admonition-note" class="admonition note">
+<div id="admonition-note" class="admonition admonish-note">
 <div class="admonition-title">
 <p>Note</p>
 <p><a class="admonition-anchor-link" href="using_queries/using_queries.html#admonition-note"></a></p>
@@ -606,7 +607,7 @@ authors()
 author_by_id().bind(&amp;client, &amp;0).one().await?; // Error if this author id doesn't exist
 authors().bind(&amp;client).all().await?;
 authors().bind(&amp;client).iter().await?.collect::&lt;Vec&lt;_&gt;&gt;(); // Acts the same as the previous line</code></pre>
-<div id="admonition-note-1" class="admonition note">
+<div id="admonition-note-1" class="admonition admonish-note">
 <div class="admonition-title">
 <p>Note</p>
 <p><a class="admonition-anchor-link" href="using_queries/using_queries.html#admonition-note-1"></a></p>
@@ -620,7 +621,7 @@ authors().bind(&amp;client).iter().await?.collect::&lt;Vec&lt;_&gt;&gt;(); // Ac
 <pre><code class="language-rust">authors_by_first_name.bind(&amp;client, &amp;&quot;John&quot;).all(); // This works
 authors_by_first_name.bind(&amp;client, &amp;String::from(&quot;John&quot;)).all(); // This also works</code></pre>
 <p>Here's the list of umbrella traits and the concrete types they abstract over.</p>
-<div id="admonition-note" class="admonition note">
+<div id="admonition-note" class="admonition admonish-note">
 <div class="admonition-title">
 <p>Note</p>
 <p><a class="admonition-anchor-link" href="using_queries/ergonomic_parameters.html#admonition-note"></a></p>
@@ -656,7 +657,7 @@ authors_by_first_name.bind(&amp;client, &amp;String::from(&quot;John&quot;)).all
 </ul>
 <h3 id="notes-on-itersql"><a class="header" href="#notes-on-itersql">Notes on <code>IterSql</code></a></h3>
 <p>This is a wrapper type available in the client crates. It allows you to treat an iterator as an <code>ArraySql</code> for the purpose of passing parameters.</p>
-<div id="admonition-note-1" class="admonition note">
+<div id="admonition-note-1" class="admonition admonish-note">
 <div class="admonition-title">
 <p>Note</p>
 <p><a class="admonition-anchor-link" href="using_queries/ergonomic_parameters.html#admonition-note-1"></a></p>

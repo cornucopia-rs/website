@@ -9,7 +9,7 @@ SELECT id, name, age
 FROM Authors 
 WHERE Authors.nationality = :country;
 ```
-The `--!` token indicates a Cornucopia query annotation, and `select_authors` is the name of the query.
+The `--!` token indicates a Cornucopia query annotation, and `authors_from_country` is the name of the query.
 
 Cornucopia will actually prepare your queries against your schema, automatically finding the parameters, row columns and their respective types. That is why in most simple queries, you don't have to specify the parameters or row columns: only the query name is required.
 
